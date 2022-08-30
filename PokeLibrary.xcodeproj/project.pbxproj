@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		534C6D2528BE8371002EAE0D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2428BE8371002EAE0D /* HomeView.swift */; };
+		534C6D2728BE83DB002EAE0D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */; };
 		53756F9728AFF32700CF3E40 /* PokeLibraryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53756F9628AFF32700CF3E40 /* PokeLibraryApp.swift */; };
-		53756F9928AFF32700CF3E40 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53756F9828AFF32700CF3E40 /* ContentView.swift */; };
 		53756F9B28AFF32F00CF3E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53756F9A28AFF32F00CF3E40 /* Assets.xcassets */; };
 		53756F9E28AFF32F00CF3E40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53756F9D28AFF32F00CF3E40 /* Preview Assets.xcassets */; };
 		53756FA828AFF32F00CF3E40 /* PokeLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53756FA728AFF32F00CF3E40 /* PokeLibraryTests.swift */; };
@@ -34,9 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		534C6D2428BE8371002EAE0D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		53756F9328AFF32700CF3E40 /* PokeLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53756F9628AFF32700CF3E40 /* PokeLibraryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeLibraryApp.swift; sourceTree = "<group>"; };
-		53756F9828AFF32700CF3E40 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		53756F9A28AFF32F00CF3E40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53756F9D28AFF32F00CF3E40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		53756FA328AFF32F00CF3E40 /* PokeLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		534C6D2328BE835D002EAE0D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				534C6D2428BE8371002EAE0D /* HomeView.swift */,
+				534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		53756F8A28AFF32700CF3E40 = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +105,8 @@
 		53756F9528AFF32700CF3E40 /* PokeLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				534C6D2328BE835D002EAE0D /* Home */,
 				53756F9628AFF32700CF3E40 /* PokeLibraryApp.swift */,
-				53756F9828AFF32700CF3E40 /* ContentView.swift */,
 				53756F9A28AFF32F00CF3E40 /* Assets.xcassets */,
 				53756F9C28AFF32F00CF3E40 /* Preview Content */,
 			);
@@ -257,7 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53756F9928AFF32700CF3E40 /* ContentView.swift in Sources */,
+				534C6D2528BE8371002EAE0D /* HomeView.swift in Sources */,
+				534C6D2728BE83DB002EAE0D /* HomeViewModel.swift in Sources */,
 				53756F9728AFF32700CF3E40 /* PokeLibraryApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
