@@ -10,3 +10,22 @@ import Foundation
 class HomeViewModel: ObservableObject {
     
 }
+
+struct PokemonHomeData: Codable {
+    var count: Int
+    var nextURL: String
+    var previousURL: String
+    var pokemons: [Pokemon]
+    
+    private enum CodingKeys: String, CodingKey {
+        case count, nextURL = "next", previousURL = "previous", pokemons = "results"
+    }
+}
+
+struct Pokemon: Codable {
+    var name: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case name = "name"
+    }
+}

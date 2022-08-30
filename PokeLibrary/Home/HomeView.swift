@@ -8,18 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject private var viewModel = ViewModel()
+    @StateObject private var viewModel = HomeViewModel()
     
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-extension HomeView {
-    // Here all the published object or things that will change will be here so that we can write better test later
-    // @MainActor is basically responsible for updating our UI instead of actual HomeViewModel class which makes the viewModel reused other places
-    @MainActor class ViewModel: ObservableObject {
-        
     }
 }
 
