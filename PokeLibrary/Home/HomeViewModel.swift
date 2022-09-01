@@ -8,7 +8,15 @@
 import Foundation
 
 class HomeViewModel: ObservableObject {
+    private let apiPath: HomeAPIPaths
     
+    init(apiPath: HomeAPIPaths) {
+        self.apiPath = apiPath
+    }
+    
+    func getPokemonList() {
+        
+    }
 }
 
 struct PokemonHomeData: Codable {
