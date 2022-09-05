@@ -21,17 +21,18 @@ class HomeViewModel: ObservableObject {
     func getPokemonList() {
         networking.send(request: Request(type: .GET, url: apiPath.getURL(for: apiPath.pokemonList), header: [:], body: [:]))
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { print($0) }, receiveValue: { print($0) })
+            .decode(type: PokemonHomeData.self, decoder: JSONDecoder())
+            .sink(receiveCompletion: { print("hAHAHA ERROR:  \($0)") }, receiveValue: { print("WOOOOOOW SUCCESSSSS:  \($0)") })
             .store(in: &subscriptions)
         
     }
 }
 
 struct PokemonHomeData: Codable {
-    var count: Int
-    var nextURL: String
-    var previousURL: String
-    var pokemons: [Pokemon]
+    var count: Int?
+    var nextURL: String?
+    var previousURL: String?
+    var pokemons: [Pokemon]?
     
     private enum CodingKeys: String, CodingKey {
         case count, nextURL = "next", previousURL = "previous", pokemons = "results"
@@ -39,7 +40,7 @@ struct PokemonHomeData: Codable {
 }
 
 struct Pokemon: Codable {
-    var name: String
+    var name: String?
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

@@ -42,8 +42,8 @@ public class NetworkingImp: Networking {
                 }
                 return data
             }
-            .mapError{error in
-                    .unknownError("Unhandled error occured: \(error.localizedDescription)")
+            .mapError { error in
+                error as? APIError ?? .unknownError("Unhandled error occured: The operation couldn’t be completed. Error: \(error)")
             }
             .eraseToAnyPublisher()
     }
