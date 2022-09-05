@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 public protocol Networking {
-    func send(request: Request) -> AnyPublisher<Void, Error>
+    func send(request: Request) -> AnyPublisher<Int, Error>
 }
 
 public class NetworkingImp: Networking {
@@ -19,8 +19,13 @@ public class NetworkingImp: Networking {
         self.urlSession = urlSession
     }
     
-    public func send(request: Request) -> AnyPublisher<Void, Error> {
-        
+    public func send(request: Request) -> AnyPublisher<Int, Error> {
+        guard let url = URL(string: request.url) else {
+            return Fail(error: APIError.invalidRequestError("URL Invalid")).eraseToAnyPublisher()
+        }
+        return Just(1)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
     }
 }
 
@@ -33,4 +38,8 @@ public struct Request {
 
 public enum RequestType: String {
     case POST, GET, PUT, DELETE
+}
+
+enum APIError: LocalizedError {
+    case invalidRequestError(String)
 }
