@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject private var viewModel = HomeViewModel(pokemonDataController: PokemonDataControllerImp(apiPath: APIProdPathImp(), networking: NetworkingImp()))
+    @StateObject private var viewModel = HomeViewModel(
+        pokemonDataController: PokemonDataControllerImp(
+            apiPath: APIProdPathImp(),
+            networking: NetworkingImp()
+        )
+    )
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .onAppear {
-                viewModel.getPokemonList()
-            }
+        List(viewModel.pokemons) {
+            Text($0.name ?? "Random")
+        }
+        .onAppear {
+            viewModel.getPokemonList()
+        }
+            
     }
 }
 
