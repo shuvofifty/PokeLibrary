@@ -16,9 +16,19 @@ struct HomeView: View {
     )
     
     var body: some View {
-        List(viewModel.pokemons) {
-            Text($0.name ?? "Random")
+        List(viewModel.pokemons) { pokemon in
+            HStack {
+                Image("NoImage")
+                    .resizable()
+                    .frame(width: 40, height: 40, alignment: .center)
+                VStack {
+                    Text((pokemon.name ?? "Random").capitalized)
+                        .bold()
+                }
+            }
+            
         }
+        .listStyle(PlainListStyle())
         .onAppear {
             viewModel.getPokemonList()
         }
