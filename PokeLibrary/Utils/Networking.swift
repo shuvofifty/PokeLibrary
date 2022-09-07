@@ -7,9 +7,11 @@
 
 import Foundation
 import Combine
+import UIKit
 
 public protocol Networking {
     func send(request: Request) -> AnyPublisher<Data, APIError>
+    func sendImage(request: Request) -> AnyPublisher<UIImage, APIError>
 }
 
 public class NetworkingImp: Networking {
@@ -47,6 +49,20 @@ public class NetworkingImp: Networking {
             }
             .eraseToAnyPublisher()
     }
+    
+    public func sendImage(request: Request) -> AnyPublisher<UIImage, APIError> {
+        send(request: request)
+            .tryMap {data -> UIImage in
+                guard let image = UIImage(data: data) else {
+                    throw APIError.fileConversionError(code: 10, type: .Image, message: "Unable to convert the downloaded data to image")
+                }
+                return image
+            }
+            .mapError { error in
+                error as? APIError ?? .unknownError("Unhandled error occured: The operation couldn’t be completed. Error: \(error)")
+            }
+            .eraseToAnyPublisher()
+    }
 }
 
 public struct Request {
@@ -61,7 +77,12 @@ public enum RequestType: String {
 }
 
 public enum APIError: LocalizedError {
+    public enum FileType {
+        case Image, File, PDF
+    }
+    
     case invalidRequestError(String)
     case unknownError(String)
     case failedResponse(code: Int, message: String)
+    case fileConversionError(code: Int, type: FileType, message: String)
 }
