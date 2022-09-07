@@ -18,9 +18,8 @@ struct HomeView: View {
     var body: some View {
         List(viewModel.pokemons) { pokemon in
             HStack {
-                Image("NoImage")
-                    .resizable()
-                    .frame(width: 40, height: 40, alignment: .center)
+                AsyncImageView(url: viewModel.getPokemonImage(with: pokemon.pokemonID))
+                    .frame(width: 100, height: 100, alignment: .center)
                 VStack(alignment: .leading) {
                     Text((pokemon.name).capitalized)
                         .bold()

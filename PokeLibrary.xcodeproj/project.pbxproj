@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5349F6E128C92A9D00A63D9B /* AsynImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6E028C92A9D00A63D9B /* AsynImageView.swift */; };
+		5349F6E428C92F0700A63D9B /* FileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6E328C92F0700A63D9B /* FileWorker.swift */; };
 		534C6D2528BE8371002EAE0D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2428BE8371002EAE0D /* HomeView.swift */; };
 		534C6D2728BE83DB002EAE0D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */; };
 		534C6D2A28BE9031002EAE0D /* APIPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2928BE9031002EAE0D /* APIPath.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5349F6E028C92A9D00A63D9B /* AsynImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynImageView.swift; sourceTree = "<group>"; };
+		5349F6E328C92F0700A63D9B /* FileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWorker.swift; sourceTree = "<group>"; };
 		534C6D2428BE8371002EAE0D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		534C6D2928BE9031002EAE0D /* APIPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPath.swift; sourceTree = "<group>"; };
@@ -81,6 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5349F6DF28C92A5400A63D9B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5349F6E028C92A9D00A63D9B /* AsynImageView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		5349F6E228C92EB800A63D9B /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				5349F6E328C92F0700A63D9B /* FileWorker.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
 		534C6D2328BE835D002EAE0D /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +114,8 @@
 		534C6D2828BE9012002EAE0D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5349F6E228C92EB800A63D9B /* Workers */,
+				5349F6DF28C92A5400A63D9B /* UI */,
 				534C6D2928BE9031002EAE0D /* APIPath.swift */,
 				534C6D2B28C11CB5002EAE0D /* Networking.swift */,
 			);
@@ -303,6 +325,8 @@
 				53756F9728AFF32700CF3E40 /* PokeLibraryApp.swift in Sources */,
 				534C6D3128C7BBA2002EAE0D /* PokemonHomeData.swift in Sources */,
 				534C6D2A28BE9031002EAE0D /* APIPath.swift in Sources */,
+				5349F6E428C92F0700A63D9B /* FileWorker.swift in Sources */,
+				5349F6E128C92A9D00A63D9B /* AsynImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

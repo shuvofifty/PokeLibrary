@@ -11,6 +11,7 @@ import UIKit
 
 public protocol PokemonDataController {
     func getPokemonList() -> AnyPublisher<PokemonHomeData, APIError>
+    func getPokemonSpriteURL(for id: Int) -> String
 }
 
 public class PokemonDataControllerImp: PokemonDataController {
@@ -30,9 +31,7 @@ public class PokemonDataControllerImp: PokemonDataController {
             .eraseToAnyPublisher()
     }
     
-    public func getPokemonSprite(for id: Int) -> AnyPublisher<UIImage, APIError> {
-        networking.sendImage(request: Request(type: .GET, url: apiPath.pokemonImage, header: [:], body: [:]))
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
+    public func getPokemonSpriteURL(for id: Int) -> String {
+        "\(apiPath.pokemonImage)\(id).png"
     }
 }

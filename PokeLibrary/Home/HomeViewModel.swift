@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class HomeViewModel: ObservableObject {
     private let pokemonDataController: PokemonDataController
@@ -25,5 +26,9 @@ class HomeViewModel: ObservableObject {
                 self.pokemons = homeData.pokemons ?? []
             })
             .store(in: &subscriptions)
+    }
+    
+    func getPokemonImage(with id: Int) -> String {
+        pokemonDataController.getPokemonSpriteURL(for: id)
     }
 }
