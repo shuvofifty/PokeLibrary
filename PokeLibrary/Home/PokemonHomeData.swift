@@ -19,10 +19,24 @@ public struct PokemonHomeData: Codable {
 }
 
 struct Pokemon: Codable, Identifiable {
-    var name: String?
+    var name: String
+    var pokemonID: Int
     var id = UUID()
     
-    private enum CodingKeys: String, CodingKey {
+    private enum RootKeys: String, CodingKey {
         case name = "name"
+        case url
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: RootKeys.self)
+        
+        name = try container.decodeIfPresent(String.self, forKey: .name) ?? "No Name"
+        let url = try container.decodeIfPresent(String.self, forKey: .url) ?? ""
+        if let id = Int(url.replacingOccurrences(of: "https://pokeapi.co/api/v2/pokemon/", with: "").replacingOccurrences(of: "/", with: "")) {
+            pokemonID = id
+        } else {
+            pokemonID = -1
+        }
     }
 }

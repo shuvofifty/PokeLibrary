@@ -21,9 +21,10 @@ struct HomeView: View {
                 Image("NoImage")
                     .resizable()
                     .frame(width: 40, height: 40, alignment: .center)
-                VStack {
-                    Text((pokemon.name ?? "Random").capitalized)
+                VStack(alignment: .leading) {
+                    Text((pokemon.name).capitalized)
                         .bold()
+                    Text("Pokemon ID: \(pokemon.pokemonID)")
                 }
             }
             
