@@ -14,14 +14,19 @@ struct HomePokemonCardView: View {
     var id: Int
     
     var body: some View {
-        CardWithTopImageView(config: CardConfig(), content: {
-            Text(pokemonName)
-                .bold()
-                .font(.system(size: 20))
-            Text("\(id)")
-        }, imageView: {
+        ZStack(alignment: .bottom) {
             AsyncImageView(url: url)
-        })
+                .padding(10)
+                .clipShape(Circle())
+                .overlay(Circle().stroke(.black, lineWidth: 5))
+                .padding(10)
+            Text(pokemonName)
+                .padding(5)
+                .background(Color.black)
+                .foregroundColor(.white)
+        }
+        
+        
     }
 }
 

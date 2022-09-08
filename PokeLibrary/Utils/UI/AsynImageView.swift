@@ -22,6 +22,7 @@ public struct AsyncImageView: View {
     public var body: some View {
         Image(uiImage: image)
             .resizable()
+            .scaledToFit()
             .onAppear(perform: {
                 viewModel.getImage(from: url)
             })

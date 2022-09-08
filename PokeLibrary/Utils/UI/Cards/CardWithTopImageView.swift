@@ -32,14 +32,13 @@ public struct CardWithTopImageView<ImageView: View, Content: View>: View {
                 
                 Spacer()
             }
-            .padding(.horizontal, config.horizontalPadding)
-            .padding(.top, 10)
+            .padding(config.padding)
         }
     }
 }
 
 public struct CardConfig {
-    var cornerRadius: CGFloat = 25
-    var backgroundColor: Color = .blue
-    var horizontalPadding: CGFloat = 20
+    var cornerRadius: CGFloat = 15
+    var backgroundColor: Color = .orange
+    var padding: EdgeInsets = EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20)
 }
