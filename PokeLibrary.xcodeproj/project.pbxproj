@@ -11,6 +11,7 @@
 		5349F6E428C92F0700A63D9B /* FileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6E328C92F0700A63D9B /* FileWorker.swift */; };
 		5349F6E928CA46CF00A63D9B /* HomePokemonCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6E828CA46CF00A63D9B /* HomePokemonCardView.swift */; };
 		5349F6EC28CA4A5600A63D9B /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 5349F6EB28CA4A5600A63D9B /* QGrid */; };
+		5349F6EF28CA572700A63D9B /* CardWithTopImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6EE28CA572700A63D9B /* CardWithTopImageView.swift */; };
 		534C6D2528BE8371002EAE0D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2428BE8371002EAE0D /* HomeView.swift */; };
 		534C6D2728BE83DB002EAE0D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */; };
 		534C6D2A28BE9031002EAE0D /* APIPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2928BE9031002EAE0D /* APIPath.swift */; };
@@ -46,6 +47,7 @@
 		5349F6E028C92A9D00A63D9B /* AsynImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynImageView.swift; sourceTree = "<group>"; };
 		5349F6E328C92F0700A63D9B /* FileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWorker.swift; sourceTree = "<group>"; };
 		5349F6E828CA46CF00A63D9B /* HomePokemonCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePokemonCardView.swift; sourceTree = "<group>"; };
+		5349F6EE28CA572700A63D9B /* CardWithTopImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWithTopImageView.swift; sourceTree = "<group>"; };
 		534C6D2428BE8371002EAE0D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		534C6D2928BE9031002EAE0D /* APIPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPath.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		5349F6DF28C92A5400A63D9B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5349F6ED28CA571800A63D9B /* Cards */,
 				5349F6E028C92A9D00A63D9B /* AsynImageView.swift */,
 			);
 			path = UI;
@@ -111,6 +114,14 @@
 				5349F6E828CA46CF00A63D9B /* HomePokemonCardView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5349F6ED28CA571800A63D9B /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				5349F6EE28CA572700A63D9B /* CardWithTopImageView.swift */,
+			);
+			path = Cards;
 			sourceTree = "<group>";
 		};
 		534C6D2328BE835D002EAE0D /* Home */ = {
@@ -346,6 +357,7 @@
 				534C6D2A28BE9031002EAE0D /* APIPath.swift in Sources */,
 				5349F6E428C92F0700A63D9B /* FileWorker.swift in Sources */,
 				5349F6E128C92A9D00A63D9B /* AsynImageView.swift in Sources */,
+				5349F6EF28CA572700A63D9B /* CardWithTopImageView.swift in Sources */,
 				5349F6E928CA46CF00A63D9B /* HomePokemonCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
