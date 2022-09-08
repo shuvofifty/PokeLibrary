@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import QGrid
 
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel(
@@ -16,23 +17,17 @@ struct HomeView: View {
     )
     
     var body: some View {
-        List(viewModel.pokemons) { pokemon in
-            HStack {
-                AsyncImageView(url: viewModel.getPokemonImage(with: pokemon.pokemonID))
-                    .frame(width: 100, height: 100, alignment: .center)
-                VStack(alignment: .leading) {
-                    Text((pokemon.name).capitalized)
-                        .bold()
-                    Text("Pokemon ID: \(pokemon.pokemonID)")
-                }
-            }
-            
+        QGrid(viewModel.pokemons, columns: 2) { pokemon in
+            HomePokemonCardView(
+                url: viewModel.getPokemonImage(with: pokemon.pokemonID),
+                pokemonName: (pokemon.name).capitalized,
+                id: pokemon.pokemonID
+            )
+            .frame(maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         }
-        .listStyle(PlainListStyle())
         .onAppear {
             viewModel.getPokemonList()
         }
-            
     }
 }
 

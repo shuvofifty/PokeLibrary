@@ -11,7 +11,7 @@ import SwiftUI
 
 public struct AsyncImageView: View {
     @ObservedObject private var viewModel: AsyncImageViewModel = AsyncImageViewModel()
-    @State private var image: UIImage = UIImage()
+    @State private var image: UIImage = UIImage(imageLiteralResourceName: "NoImage")
     
     private let url: String
     

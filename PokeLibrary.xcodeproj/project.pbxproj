@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5349F6E128C92A9D00A63D9B /* AsynImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6E028C92A9D00A63D9B /* AsynImageView.swift */; };
 		5349F6E428C92F0700A63D9B /* FileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6E328C92F0700A63D9B /* FileWorker.swift */; };
+		5349F6E928CA46CF00A63D9B /* HomePokemonCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6E828CA46CF00A63D9B /* HomePokemonCardView.swift */; };
+		5349F6EC28CA4A5600A63D9B /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 5349F6EB28CA4A5600A63D9B /* QGrid */; };
 		534C6D2528BE8371002EAE0D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2428BE8371002EAE0D /* HomeView.swift */; };
 		534C6D2728BE83DB002EAE0D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */; };
 		534C6D2A28BE9031002EAE0D /* APIPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2928BE9031002EAE0D /* APIPath.swift */; };
@@ -43,6 +45,7 @@
 /* Begin PBXFileReference section */
 		5349F6E028C92A9D00A63D9B /* AsynImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynImageView.swift; sourceTree = "<group>"; };
 		5349F6E328C92F0700A63D9B /* FileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWorker.swift; sourceTree = "<group>"; };
+		5349F6E828CA46CF00A63D9B /* HomePokemonCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePokemonCardView.swift; sourceTree = "<group>"; };
 		534C6D2428BE8371002EAE0D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		534C6D2928BE9031002EAE0D /* APIPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPath.swift; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5349F6EC28CA4A5600A63D9B /* QGrid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,9 +105,18 @@
 			path = Workers;
 			sourceTree = "<group>";
 		};
+		5349F6E728CA46BD00A63D9B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5349F6E828CA46CF00A63D9B /* HomePokemonCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		534C6D2328BE835D002EAE0D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				5349F6E728CA46BD00A63D9B /* Views */,
 				534C6D2428BE8371002EAE0D /* HomeView.swift */,
 				534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */,
 				534C6D3028C7BBA2002EAE0D /* PokemonHomeData.swift */,
@@ -204,6 +217,9 @@
 			dependencies = (
 			);
 			name = PokeLibrary;
+			packageProductDependencies = (
+				5349F6EB28CA4A5600A63D9B /* QGrid */,
+			);
 			productName = PokeLibrary;
 			productReference = 53756F9328AFF32700CF3E40 /* PokeLibrary.app */;
 			productType = "com.apple.product-type.application";
@@ -276,6 +292,9 @@
 				Base,
 			);
 			mainGroup = 53756F8A28AFF32700CF3E40;
+			packageReferences = (
+				5349F6EA28CA4A5600A63D9B /* XCRemoteSwiftPackageReference "QGrid" */,
+			);
 			productRefGroup = 53756F9428AFF32700CF3E40 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -327,6 +346,7 @@
 				534C6D2A28BE9031002EAE0D /* APIPath.swift in Sources */,
 				5349F6E428C92F0700A63D9B /* FileWorker.swift in Sources */,
 				5349F6E128C92A9D00A63D9B /* AsynImageView.swift in Sources */,
+				5349F6E928CA46CF00A63D9B /* HomePokemonCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +671,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5349F6EA28CA4A5600A63D9B /* XCRemoteSwiftPackageReference "QGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Q-Mobile/QGrid";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5349F6EB28CA4A5600A63D9B /* QGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5349F6EA28CA4A5600A63D9B /* XCRemoteSwiftPackageReference "QGrid" */;
+			productName = QGrid;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 53756F8B28AFF32700CF3E40 /* Project object */;
 }
