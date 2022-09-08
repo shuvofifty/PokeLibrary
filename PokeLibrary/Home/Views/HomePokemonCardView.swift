@@ -14,19 +14,12 @@ struct HomePokemonCardView: View {
     var id: Int
     
     var body: some View {
-        ZStack(alignment: .bottom) {
+        CircleWithLabelView(config: CircleWithLabelView.Config(), imageView: {
             AsyncImageView(url: url)
-                .padding(10)
-                .clipShape(Circle())
-                .overlay(Circle().stroke(.black, lineWidth: 5))
-                .padding(10)
+        }, labelView: {
             Text(pokemonName)
-                .padding(5)
-                .background(Color.black)
-                .foregroundColor(.white)
-        }
-        
-        
+                .bold()
+        })
     }
 }
 

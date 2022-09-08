@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 public struct CardWithTopImageView<ImageView: View, Content: View>: View {
-    var config: CardConfig
+    var config: Config
     @ViewBuilder var content: Content
     @ViewBuilder var imageView: ImageView
     
@@ -35,10 +35,10 @@ public struct CardWithTopImageView<ImageView: View, Content: View>: View {
             .padding(config.padding)
         }
     }
-}
-
-public struct CardConfig {
-    var cornerRadius: CGFloat = 15
-    var backgroundColor: Color = .orange
-    var padding: EdgeInsets = EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20)
+    
+    public struct Config {
+        var cornerRadius: CGFloat = 15
+        var backgroundColor: Color = .orange
+        var padding: EdgeInsets = EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20)
+    }
 }
