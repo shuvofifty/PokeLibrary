@@ -13,13 +13,14 @@ import Resolver
 public protocol PokemonDataController {
     func getPokemonList() -> AnyPublisher<PokemonHomeData, APIError>
     func getPokemonSpriteURL(for id: Int) -> String
+    func getPokemonTypes() -> AnyPublisher<PokemonTypeResponseData, APIError>
 }
 
 public class PokemonDataControllerImp: PokemonDataController {
-    private let apiPath: HomeAPIPaths
+    private let apiPath: HomeAPIPaths & CategoryAPIPath
     private let networking: Networking
     
-    init(apiPath: HomeAPIPaths, networking: Networking) {
+    init(apiPath: HomeAPIPaths & CategoryAPIPath, networking: Networking) {
         self.apiPath = apiPath
         self.networking = networking
     }
@@ -36,7 +37,11 @@ public class PokemonDataControllerImp: PokemonDataController {
         "\(apiPath.pokemonImage)\(id).png"
     }
     
-    public func getPokemonTypes() {
-        
+    public func getPokemonTypes() -> AnyPublisher<PokemonTypeResponseData, APIError> {
+        networking.send(request: Request(type: .GET, url: apiPath.getURL(for: apiPath.pokemonType), header: [:], body: [:]))
+            .receive(on: DispatchQueue.main)
+            .decode(type: PokemonTypeResponseData.self, decoder: JSONDecoder())
+            .mapError{ $0 as! APIError }
+            .eraseToAnyPublisher()
     }
 }

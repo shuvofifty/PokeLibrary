@@ -13,5 +13,8 @@ struct CategoryView: View {
     
     var body: some View {
         Text("Category")
+            .onAppear {
+                viewModel.getPokemonTypes()
+            }
     }
 }
