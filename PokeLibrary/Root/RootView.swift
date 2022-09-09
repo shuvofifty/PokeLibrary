@@ -10,15 +10,16 @@ import SwiftUI
 
 struct RootView: View {
     @StateObject private var tabController = TabController()
+    @EnvironmentObject var cordinator: Cordinator
     
     var body: some View {
         TabView(selection: $tabController.activeTab) {
-            HomeView()
+            cordinator.createHomeView()
                 .tag(Tab.home)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-            EmptyView()
+            CategoryView()
                 .tag(Tab.category)
                 .tabItem {
                     Label("Category", systemImage: "circle.grid.3x3")
