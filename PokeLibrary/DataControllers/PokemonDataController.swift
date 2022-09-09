@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import UIKit
+import Resolver
 
 public protocol PokemonDataController {
     func getPokemonList() -> AnyPublisher<PokemonHomeData, APIError>
@@ -33,5 +34,9 @@ public class PokemonDataControllerImp: PokemonDataController {
     
     public func getPokemonSpriteURL(for id: Int) -> String {
         "\(apiPath.pokemonImage)\(id).png"
+    }
+    
+    public func getPokemonTypes() {
+        
     }
 }

@@ -7,13 +7,15 @@
 
 import Foundation
 
-class APIProdPathImp: HomeAPIPaths {
+class APIProdPathImp: HomeAPIPaths, CategoryAPIPath {
     var baseURL: String = "https://pokeapi.co/api"
     
     var version: String = "/v2"
     
     var pokemonList: String = "/pokemon"
     var pokemonImage: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"
+    
+    var pokemonType: String = "/type"
     
     func getURL(for url: String) -> String {
         "\(baseURL)\(version)\(url)"
@@ -30,4 +32,8 @@ protocol APIPath {
 protocol HomeAPIPaths: APIPath {
     var pokemonList: String { get }
     var pokemonImage: String { get }
+}
+
+protocol CategoryAPIPath: APIPath {
+    var pokemonType: String { get }
 }

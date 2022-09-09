@@ -25,6 +25,8 @@
 		534C6D2C28C11CB5002EAE0D /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2B28C11CB5002EAE0D /* Networking.swift */; };
 		534C6D2F28C7BB73002EAE0D /* PokemonDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2E28C7BB73002EAE0D /* PokemonDataController.swift */; };
 		534C6D3128C7BBA2002EAE0D /* PokemonHomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D3028C7BBA2002EAE0D /* PokemonHomeData.swift */; };
+		534FF42B28CBBB2200A7EFE4 /* Resolver+Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534FF42A28CBBB2200A7EFE4 /* Resolver+Dependency.swift */; };
+		534FF42E28CBBDF300A7EFE4 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 534FF42D28CBBDF300A7EFE4 /* Factory */; };
 		53756F9728AFF32700CF3E40 /* PokeLibraryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53756F9628AFF32700CF3E40 /* PokeLibraryApp.swift */; };
 		53756F9B28AFF32F00CF3E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53756F9A28AFF32F00CF3E40 /* Assets.xcassets */; };
 		53756F9E28AFF32F00CF3E40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53756F9D28AFF32F00CF3E40 /* Preview Assets.xcassets */; };
@@ -68,6 +70,7 @@
 		534C6D2B28C11CB5002EAE0D /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		534C6D2E28C7BB73002EAE0D /* PokemonDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDataController.swift; sourceTree = "<group>"; };
 		534C6D3028C7BBA2002EAE0D /* PokemonHomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonHomeData.swift; sourceTree = "<group>"; };
+		534FF42A28CBBB2200A7EFE4 /* Resolver+Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Dependency.swift"; sourceTree = "<group>"; };
 		53756F9328AFF32700CF3E40 /* PokeLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53756F9628AFF32700CF3E40 /* PokeLibraryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeLibraryApp.swift; sourceTree = "<group>"; };
 		53756F9A28AFF32F00CF3E40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				534FF42E28CBBDF300A7EFE4 /* Factory in Frameworks */,
 				5349F6EC28CA4A5600A63D9B /* QGrid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,6 +170,15 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		5349F70428CBBAC600A63D9B /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				5349F6FD28CBAF6800A63D9B /* Cordinator.swift */,
+				534FF42A28CBBB2200A7EFE4 /* Resolver+Dependency.swift */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 		534C6D2328BE835D002EAE0D /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +233,7 @@
 		53756F9528AFF32700CF3E40 /* PokeLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				5349F70428CBBAC600A63D9B /* Configs */,
 				5349F6F928CBADE300A63D9B /* Screens */,
 				5349F6F228CB9F8600A63D9B /* Root */,
 				534C6D2D28C7BB5E002EAE0D /* DataControllers */,
@@ -227,7 +241,6 @@
 				53756F9628AFF32700CF3E40 /* PokeLibraryApp.swift */,
 				53756F9A28AFF32F00CF3E40 /* Assets.xcassets */,
 				53756F9C28AFF32F00CF3E40 /* Preview Content */,
-				5349F6FD28CBAF6800A63D9B /* Cordinator.swift */,
 			);
 			path = PokeLibrary;
 			sourceTree = "<group>";
@@ -275,6 +288,7 @@
 			name = PokeLibrary;
 			packageProductDependencies = (
 				5349F6EB28CA4A5600A63D9B /* QGrid */,
+				534FF42D28CBBDF300A7EFE4 /* Factory */,
 			);
 			productName = PokeLibrary;
 			productReference = 53756F9328AFF32700CF3E40 /* PokeLibrary.app */;
@@ -350,6 +364,7 @@
 			mainGroup = 53756F8A28AFF32700CF3E40;
 			packageReferences = (
 				5349F6EA28CA4A5600A63D9B /* XCRemoteSwiftPackageReference "QGrid" */,
+				534FF42C28CBBDF300A7EFE4 /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			productRefGroup = 53756F9428AFF32700CF3E40 /* Products */;
 			projectDirPath = "";
@@ -401,6 +416,7 @@
 				5349F6F128CA636A00A63D9B /* CircleWithLabelView.swift in Sources */,
 				5349F6FC28CBAE2700A63D9B /* CategoryView.swift in Sources */,
 				534C6D3128C7BBA2002EAE0D /* PokemonHomeData.swift in Sources */,
+				534FF42B28CBBB2200A7EFE4 /* Resolver+Dependency.swift in Sources */,
 				5349F6FE28CBAF6800A63D9B /* Cordinator.swift in Sources */,
 				5349F6F828CBAD5C00A63D9B /* NavModifier.swift in Sources */,
 				5349F6F628CBA02000A63D9B /* TabController.swift in Sources */,
@@ -745,6 +761,14 @@
 				minimumVersion = 0.1.4;
 			};
 		};
+		534FF42C28CBBDF300A7EFE4 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -752,6 +776,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5349F6EA28CA4A5600A63D9B /* XCRemoteSwiftPackageReference "QGrid" */;
 			productName = QGrid;
+		};
+		534FF42D28CBBDF300A7EFE4 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 534FF42C28CBBDF300A7EFE4 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

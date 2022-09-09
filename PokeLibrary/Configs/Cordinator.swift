@@ -7,14 +7,11 @@
 
 import Foundation
 import SwiftUI
+import Factory
 
 class Cordinator: ObservableObject {
-    
-    private let apiPaths = APIProdPathImp()
-    private let networking = NetworkingImp()
-    
     func createHomeView() -> some View {
-        let viewModel = HomeView.ViewModel(pokemonDataController: PokemonDataControllerImp(apiPath: apiPaths, networking: networking))
+        let viewModel = HomeView.ViewModel(pokemonDataController: Container.pokemonDataController())
         return HomeView(viewModel: viewModel)
     }
     
