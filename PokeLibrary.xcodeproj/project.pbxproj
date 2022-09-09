@@ -15,6 +15,7 @@
 		5349F6F128CA636A00A63D9B /* CircleWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6F028CA636A00A63D9B /* CircleWithLabelView.swift */; };
 		5349F6F428CB9F9300A63D9B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6F328CB9F9300A63D9B /* RootView.swift */; };
 		5349F6F628CBA02000A63D9B /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6F528CBA02000A63D9B /* TabController.swift */; };
+		5349F6F828CBAD5C00A63D9B /* NavModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6F728CBAD5C00A63D9B /* NavModifier.swift */; };
 		534C6D2528BE8371002EAE0D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2428BE8371002EAE0D /* HomeView.swift */; };
 		534C6D2728BE83DB002EAE0D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */; };
 		534C6D2A28BE9031002EAE0D /* APIPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2928BE9031002EAE0D /* APIPath.swift */; };
@@ -54,6 +55,7 @@
 		5349F6F028CA636A00A63D9B /* CircleWithLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleWithLabelView.swift; sourceTree = "<group>"; };
 		5349F6F328CB9F9300A63D9B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		5349F6F528CBA02000A63D9B /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
+		5349F6F728CBAD5C00A63D9B /* NavModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavModifier.swift; sourceTree = "<group>"; };
 		534C6D2428BE8371002EAE0D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		534C6D2928BE9031002EAE0D /* APIPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPath.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				5349F6DF28C92A5400A63D9B /* UI */,
 				534C6D2928BE9031002EAE0D /* APIPath.swift */,
 				534C6D2B28C11CB5002EAE0D /* Networking.swift */,
+				5349F6F728CBAD5C00A63D9B /* NavModifier.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				53756F9728AFF32700CF3E40 /* PokeLibraryApp.swift in Sources */,
 				5349F6F128CA636A00A63D9B /* CircleWithLabelView.swift in Sources */,
 				534C6D3128C7BBA2002EAE0D /* PokemonHomeData.swift in Sources */,
+				5349F6F828CBAD5C00A63D9B /* NavModifier.swift in Sources */,
 				5349F6F628CBA02000A63D9B /* TabController.swift in Sources */,
 				534C6D2A28BE9031002EAE0D /* APIPath.swift in Sources */,
 				5349F6E428C92F0700A63D9B /* FileWorker.swift in Sources */,
