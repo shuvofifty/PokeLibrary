@@ -13,6 +13,8 @@
 		5349F6EC28CA4A5600A63D9B /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 5349F6EB28CA4A5600A63D9B /* QGrid */; };
 		5349F6EF28CA572700A63D9B /* CardWithTopImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6EE28CA572700A63D9B /* CardWithTopImageView.swift */; };
 		5349F6F128CA636A00A63D9B /* CircleWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6F028CA636A00A63D9B /* CircleWithLabelView.swift */; };
+		5349F6F428CB9F9300A63D9B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6F328CB9F9300A63D9B /* RootView.swift */; };
+		5349F6F628CBA02000A63D9B /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6F528CBA02000A63D9B /* TabController.swift */; };
 		534C6D2528BE8371002EAE0D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2428BE8371002EAE0D /* HomeView.swift */; };
 		534C6D2728BE83DB002EAE0D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */; };
 		534C6D2A28BE9031002EAE0D /* APIPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C6D2928BE9031002EAE0D /* APIPath.swift */; };
@@ -50,6 +52,8 @@
 		5349F6E828CA46CF00A63D9B /* HomePokemonCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePokemonCardView.swift; sourceTree = "<group>"; };
 		5349F6EE28CA572700A63D9B /* CardWithTopImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWithTopImageView.swift; sourceTree = "<group>"; };
 		5349F6F028CA636A00A63D9B /* CircleWithLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleWithLabelView.swift; sourceTree = "<group>"; };
+		5349F6F328CB9F9300A63D9B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		5349F6F528CBA02000A63D9B /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		534C6D2428BE8371002EAE0D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		534C6D2628BE83DB002EAE0D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		534C6D2928BE9031002EAE0D /* APIPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPath.swift; sourceTree = "<group>"; };
@@ -127,6 +131,15 @@
 			path = Cards;
 			sourceTree = "<group>";
 		};
+		5349F6F228CB9F8600A63D9B /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				5349F6F328CB9F9300A63D9B /* RootView.swift */,
+				5349F6F528CBA02000A63D9B /* TabController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 		534C6D2328BE835D002EAE0D /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +193,7 @@
 		53756F9528AFF32700CF3E40 /* PokeLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				5349F6F228CB9F8600A63D9B /* Root */,
 				534C6D2D28C7BB5E002EAE0D /* DataControllers */,
 				534C6D2828BE9012002EAE0D /* Utils */,
 				534C6D2328BE835D002EAE0D /* Home */,
@@ -358,8 +372,10 @@
 				53756F9728AFF32700CF3E40 /* PokeLibraryApp.swift in Sources */,
 				5349F6F128CA636A00A63D9B /* CircleWithLabelView.swift in Sources */,
 				534C6D3128C7BBA2002EAE0D /* PokemonHomeData.swift in Sources */,
+				5349F6F628CBA02000A63D9B /* TabController.swift in Sources */,
 				534C6D2A28BE9031002EAE0D /* APIPath.swift in Sources */,
 				5349F6E428C92F0700A63D9B /* FileWorker.swift in Sources */,
+				5349F6F428CB9F9300A63D9B /* RootView.swift in Sources */,
 				5349F6E128C92A9D00A63D9B /* AsynImageView.swift in Sources */,
 				5349F6EF28CA572700A63D9B /* CardWithTopImageView.swift in Sources */,
 				5349F6E928CA46CF00A63D9B /* HomePokemonCardView.swift in Sources */,
