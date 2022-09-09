@@ -9,7 +9,7 @@ import SwiftUI
 import QGrid
 
 struct HomeView: View {
-    @StateObject var viewModel: HomeViewModel
+    @StateObject var viewModel: ViewModel
     
     var body: some View {
         QGrid(viewModel.pokemons, columns: 2) { pokemon in
@@ -25,9 +25,3 @@ struct HomeView: View {
         }
     }
 }
-
-//struct HomeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeView()
-//    }
-//}

@@ -19,7 +19,7 @@ struct RootView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-            CategoryView()
+            cordinator.createCategoryView()
                 .tag(Tab.category)
                 .tabItem {
                     Label("Category", systemImage: "circle.grid.3x3")

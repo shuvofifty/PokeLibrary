@@ -9,13 +9,10 @@ import Foundation
 import SwiftUI
 
 struct CategoryView: View {
+    
+    @ObservedObject var viewModel: ViewModel
+    
     var body: some View {
         Text("Category")
-    }
-}
-
-struct CategoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryView()
     }
 }
