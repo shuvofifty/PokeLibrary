@@ -16,7 +16,7 @@ class Cordinator: ObservableObject {
     }
     
     func createCategoryView() -> some View {
-        let viewModel = CategoryView.ViewModel(pokemonDataController: Container.pokemonDataController())
+        let viewModel = CategoryView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
         return CategoryView(viewModel: viewModel)
     }
 }

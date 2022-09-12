@@ -14,14 +14,10 @@ struct CategoryView: View {
     
     var body: some View {
         QGrid(viewModel.pokemonTypes, columns: 2) {type in
-            ZStack {
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(.orange)
-                    .frame(height: 100)
-                Text(type.name.capitalized)
-                    .bold()
-                    .foregroundColor(.white)
-            }
+            return CategoryBoxCellView(category: type.name.capitalized)
+                .onAppear {
+                    viewModel.getPokemonTypeImage(id: type.typeId)
+                }
         }
         .onAppear {
             viewModel.getPokemonTypes()
@@ -30,9 +26,16 @@ struct CategoryView: View {
 }
 
 struct CategoryBoxCellView: View {
-    private let category: String
+    let category: String
     
     var body: some View {
-        Text("Category")
+        ZStack {
+            RoundedRectangle(cornerRadius: 25)
+                .fill(.orange)
+                .frame(height: 100)
+            Text(category)
+                .bold()
+                .foregroundColor(.white)
+        }
     }
 }

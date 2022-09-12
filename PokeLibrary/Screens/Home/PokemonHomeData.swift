@@ -28,15 +28,24 @@ struct Pokemon: Codable, Identifiable {
         case url
     }
     
+    init(name: String, pokemonID: Int) {
+        self.name = name
+        self.pokemonID = pokemonID
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: RootKeys.self)
         
         name = try container.decodeIfPresent(String.self, forKey: .name) ?? "No Name"
         let url = try container.decodeIfPresent(String.self, forKey: .url) ?? ""
-        if let id = Int(url.replacingOccurrences(of: "https://pokeapi.co/api/v2/pokemon/", with: "").replacingOccurrences(of: "/", with: "")) {
+        if let id = Pokemon.extractId(url: url) {
             pokemonID = id
         } else {
             pokemonID = -1
         }
+    }
+    
+    static func extractId(url: String) -> Int? {
+        Int(url.replacingOccurrences(of: "https://pokeapi.co/api/v2/pokemon/", with: "").replacingOccurrences(of: "/", with: ""))
     }
 }

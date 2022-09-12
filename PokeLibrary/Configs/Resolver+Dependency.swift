@@ -10,6 +10,8 @@ import Factory
 
 extension Container {
     static let pokemonDataController = Factory<PokemonDataController> { PokemonDataControllerImp(apiPath: Container.apiPath(), networking: Container.networking()) }
+    static let pokemonTypeDataController = Factory<PokemonTypeDataController> { PokemonTypeDataControllerImp(apiPath: Container.apiPath(), networking: Container.networking()) }
+    
     static let apiPath = Factory<APIProdPathImp>(scope: .singleton) { APIProdPathImp() }
     static let networking = Factory<Networking>(scope: .singleton) { NetworkingImp() }
 }

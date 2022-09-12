@@ -78,7 +78,7 @@ public enum RequestType: String {
 
 public enum APIError: LocalizedError {
     public enum FileType {
-        case Image, File, PDF
+        case Image, File, PDF, JSON
     }
     
     case invalidRequestError(String)
