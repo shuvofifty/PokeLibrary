@@ -16,7 +16,7 @@ struct CategoryView: View {
     
     var body: some View {
         QGrid(viewModel.pokemonTypes, columns: 2) {type in
-            return cordinator.createCategoryCellView(typeId: type.typeId, category: type.name)
+            return cordinator.createCategoryCellView(typeId: type.typeId, category: type.name.capitalized)
         }
         .onAppear {
             viewModel.getPokemonTypes()

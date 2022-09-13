@@ -16,17 +16,19 @@ struct CategoryBoxCellView: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 25)
-                .fill(.orange)
-                .frame(height: 100)
             VStack {
                 AsyncImageView(url: self.viewModel.imageUrl)
-                    .frame(width: 30, height: 30, alignment: .center)
                 Text(category)
                     .bold()
-                    .foregroundColor(.white)
+                    .font(.system(size: 20))
+                    .foregroundColor(.orange)
+                    .padding(.top, 20)
             }
+            .padding(25)
+            .overlay(RoundedRectangle(cornerRadius: 15).stroke(.orange, lineWidth: 5))
         }
+        .padding(2.5)
+        .frame(maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         .onAppear {
             self.viewModel.getTypeDetails(for: self.typeId)
         }
