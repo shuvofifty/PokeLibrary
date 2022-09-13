@@ -23,24 +23,13 @@ extension CategoryView {
         
         func getPokemonTypes() {
             pokemonDataController.getPokemonTypes()
+                .map { $0.types }
                 .sink { error in
                     print("Error: \(error)")
-                } receiveValue: { response in
-                    self.pokemonTypes = response.types
-                    print(self.pokemonTypes)
+                } receiveValue: { types in
+                    self.pokemonTypes = types
                 }
                 .store(in: &subscriptions)
-        }
-        
-        func getPokemonTypeImage(id: Int) {
-            pokemonTypeDataController.getCategoryDetail(for: id)
-                .sink { error in
-                    print("Error: \(error)")
-                } receiveValue: { response in
-                    print(response)
-                }
-                .store(in: &subscriptions)
-
         }
     }
 }

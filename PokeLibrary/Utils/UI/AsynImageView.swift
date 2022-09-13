@@ -13,19 +13,17 @@ public struct AsyncImageView: View {
     @ObservedObject private var viewModel: AsyncImageViewModel = AsyncImageViewModel()
     @State private var image: UIImage = UIImage(imageLiteralResourceName: "NoImage")
     
-    private let url: String
+    private var url: String
     
     public init(url: String) {
         self.url = url
+        viewModel.getImage(from: url)
     }
     
     public var body: some View {
         Image(uiImage: image)
             .resizable()
             .scaledToFit()
-            .onAppear(perform: {
-                viewModel.getImage(from: url)
-            })
             .onReceive(viewModel.didChange) { image in
                 self.image = image
             }
@@ -43,7 +41,7 @@ fileprivate class AsyncImageViewModel: ObservableObject {
     }
     
     func getImage(from url: String) {
-        fileWorker.getImageFrom(url: url)
+        return fileWorker.getImageFrom(url: url)
             .replaceError(with: UIImage(imageLiteralResourceName: "NoImage"))
             .sink { image in
                 self.didChange.send(image)

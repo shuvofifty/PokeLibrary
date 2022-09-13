@@ -8,34 +8,18 @@
 import Foundation
 import QGrid
 import SwiftUI
+import Combine
 
 struct CategoryView: View {
+    @EnvironmentObject var cordinator: Cordinator
     @StateObject var viewModel: ViewModel
     
     var body: some View {
         QGrid(viewModel.pokemonTypes, columns: 2) {type in
-            return CategoryBoxCellView(category: type.name.capitalized)
-                .onAppear {
-                    viewModel.getPokemonTypeImage(id: type.typeId)
-                }
+            return cordinator.createCategoryCellView(typeId: type.typeId, category: type.name)
         }
         .onAppear {
             viewModel.getPokemonTypes()
-        }
-    }
-}
-
-struct CategoryBoxCellView: View {
-    let category: String
-    
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 25)
-                .fill(.orange)
-                .frame(height: 100)
-            Text(category)
-                .bold()
-                .foregroundColor(.white)
         }
     }
 }

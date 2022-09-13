@@ -23,9 +23,8 @@ extension HomeView {
         
         func getPokemonList() {
             pokemonDataController.getPokemonList()
-                .sink(receiveCompletion: { print("hAHAHA ERROR:  \($0)") }, receiveValue: { homeData in
-                    self.pokemons = homeData.pokemons ?? []
-                })
+                .map { $0.pokemons ?? [] }
+                .sink(receiveCompletion: { print("hAHAHA ERROR:  \($0)") }, receiveValue: { self.pokemons = $0 })
                 .store(in: &subscriptions)
         }
         
