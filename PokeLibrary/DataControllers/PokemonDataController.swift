@@ -13,6 +13,7 @@ public protocol PokemonDataController {
     func getPokemonList() -> AnyPublisher<PokemonHomeData, APIError>
     func getPokemonSpriteURL(for id: Int) -> String
     func getPokemonTypes() -> AnyPublisher<PokemonTypeResponseData, APIError>
+    func getPokemonDetail(for id: Int) -> AnyPublisher<PokemonDetailResponse, APIError>
 }
 
 public class PokemonDataControllerImp: PokemonDataController {
@@ -44,7 +45,11 @@ public class PokemonDataControllerImp: PokemonDataController {
             .eraseToAnyPublisher()
     }
     
-    public func getPokemonDetail(for id: Int) {
-        
+    public func getPokemonDetail(for id: Int) -> AnyPublisher<PokemonDetailResponse, APIError> {
+        networking.send(request: Request(type: .GET, url: apiPath.getURL(for: "\(apiPath.pokemonList)/\(id)"), header: [:], body: [:]))
+            .receive(on: DispatchQueue.main)
+            .decode(type: PokemonDetailResponse.self, decoder: JSONDecoder())
+            .mapError{ $0 as! APIError }
+            .eraseToAnyPublisher()
     }
 }
