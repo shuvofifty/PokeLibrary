@@ -12,7 +12,7 @@ import Factory
 class Cordinator: ObservableObject {
     func createHomeView() -> some View {
         let viewModel = HomeView.ViewModel(pokemonDataController: Container.pokemonDataController())
-        return HomeView(viewModel: viewModel)
+        return NavigationView{ HomeView(viewModel: viewModel) }
     }
     
     func createCategoryView() -> some View {
@@ -23,5 +23,16 @@ class Cordinator: ObservableObject {
     func createCategoryCellView(typeId: Int, category: String) -> some View {
         let viewModel = CategoryBoxCellView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
         return CategoryBoxCellView(viewModel: viewModel, typeId: typeId, category: category)
+    }
+    
+    func createPokemonDetailView() -> some View {
+        PokemonDetailView(viewModel: PokemonDetailView.ViewModel())
+    }
+    
+    func registerNav<T: View>(for view: () -> T, isActive: Binding<Bool>) -> some View {
+        NavigationLink("_", isActive: isActive) {
+            view()
+        }
+        .hidden()
     }
 }

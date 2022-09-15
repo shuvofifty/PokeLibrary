@@ -10,9 +10,10 @@ import QGrid
 
 struct HomeView: View {
     @StateObject var viewModel: ViewModel
+    @EnvironmentObject private var cordinator: Cordinator
     
     var body: some View {
-        NavigationView {
+        ZStack {
             QGrid(viewModel.pokemons, columns: 2) { pokemon in
                 HomePokemonCardView(
                     url: viewModel.getPokemonImage(with: pokemon.pokemonID),
