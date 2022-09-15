@@ -17,7 +17,7 @@ struct HomePokemonCardView: View {
     
     var body: some View {
         ZStack {
-            cordinator.registerNav(for: { cordinator.createPokemonDetailView() }, isActive: $isPokemonDetailViewActive)
+            cordinator.createNav(for: { cordinator.createPokemonDetailView() }, isActive: $isPokemonDetailViewActive)
             
             CircleWithLabelView(config: CircleWithLabelView.Config(), imageView: {
                 AsyncImageView(url: url)

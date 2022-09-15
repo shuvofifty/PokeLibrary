@@ -29,7 +29,7 @@ class Cordinator: ObservableObject {
         PokemonDetailView(viewModel: PokemonDetailView.ViewModel())
     }
     
-    func registerNav<T: View>(for view: () -> T, isActive: Binding<Bool>) -> some View {
+    func createNav<T: View>(for view: () -> T, isActive: Binding<Bool>) -> some View {
         NavigationLink("_", isActive: isActive) {
             view()
         }
