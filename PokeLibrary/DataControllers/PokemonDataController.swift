@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 import UIKit
-import Resolver
 
 public protocol PokemonDataController {
     func getPokemonList() -> AnyPublisher<PokemonHomeData, APIError>

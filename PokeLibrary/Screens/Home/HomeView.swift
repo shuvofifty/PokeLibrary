@@ -12,16 +12,19 @@ struct HomeView: View {
     @StateObject var viewModel: ViewModel
     
     var body: some View {
-        QGrid(viewModel.pokemons, columns: 2) { pokemon in
-            HomePokemonCardView(
-                url: viewModel.getPokemonImage(with: pokemon.pokemonID),
-                pokemonName: (pokemon.name).capitalized,
-                id: pokemon.pokemonID
-            )
-            .frame(maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-        }
-        .onAppear {
-            viewModel.getPokemonList()
+        NavigationView {
+            QGrid(viewModel.pokemons, columns: 2) { pokemon in
+                HomePokemonCardView(
+                    url: viewModel.getPokemonImage(with: pokemon.pokemonID),
+                    pokemonName: (pokemon.name).capitalized,
+                    id: pokemon.pokemonID
+                )
+                .frame(maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            }
+            .onAppear {
+                viewModel.getPokemonList()
+            }
+            .navigationTitle("Home")
         }
     }
 }
