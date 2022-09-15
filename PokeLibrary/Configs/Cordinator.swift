@@ -25,8 +25,13 @@ class Cordinator: ObservableObject {
         return CategoryBoxCellView(viewModel: viewModel, typeId: typeId, category: category)
     }
     
-    func createPokemonDetailView() -> some View {
-        PokemonDetailView(viewModel: PokemonDetailView.ViewModel())
+    func createPokemonDetailView(pokemonId: Int) -> some View {
+        PokemonDetailView(
+            viewModel: PokemonDetailView.ViewModel(
+                pokemonId: pokemonId,
+                pokemonDataController: Container.pokemonDataController()
+            )
+        )
     }
     
     func createNav<T: View>(for view: () -> T, isActive: Binding<Bool>) -> some View {

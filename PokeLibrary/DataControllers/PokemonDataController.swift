@@ -43,4 +43,8 @@ public class PokemonDataControllerImp: PokemonDataController {
             .mapError{ $0 as! APIError }
             .eraseToAnyPublisher()
     }
+    
+    public func getPokemonDetail(for id: Int) {
+        
+    }
 }
