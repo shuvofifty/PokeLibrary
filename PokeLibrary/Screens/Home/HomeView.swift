@@ -10,7 +10,6 @@ import QGrid
 
 struct HomeView: View {
     @StateObject var viewModel: ViewModel
-    @EnvironmentObject private var cordinator: Cordinator
     
     var body: some View {
         ZStack {
@@ -21,9 +20,6 @@ struct HomeView: View {
                     id: pokemon.pokemonID
                 )
                 .frame(maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            }
-            .onAppear {
-                viewModel.getPokemonList()
             }
             .navigationTitle("Home")
         }

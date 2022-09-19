@@ -6,16 +6,15 @@
 //
 
 import Foundation
-import SwiftUI
+import UIKit
 
-class TabController: ObservableObject {
-    @Published var activeTab: Tab = .home
-    
-    func open(_ tab: Tab) {
-        activeTab = tab
+class TabBarController: UITabBarController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let homeViewController = HomeViewController()
+        homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        
+        self.viewControllers = [homeViewController]
     }
-}
-
-public enum Tab {
-    case home, category, user
 }
