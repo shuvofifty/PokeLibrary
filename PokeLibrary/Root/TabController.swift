@@ -15,6 +15,9 @@ class TabBarController: UITabBarController {
         let homeViewController = HomeViewController()
         homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
         
-        self.viewControllers = [homeViewController]
+        let categoryViewController = CategoryViewController()
+        categoryViewController.tabBarItem = UITabBarItem(title: "Category", image: UIImage(systemName: "circle.grid.3x3"), tag: 1)
+        
+        self.viewControllers = [homeViewController, categoryViewController]
     }
 }

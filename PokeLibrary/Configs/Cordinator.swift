@@ -15,10 +15,10 @@ class Cordinator: ObservableObject {
         return NavigationView{ HomeView(viewModel: viewModel) }
     }
     
-    func createCategoryView() -> some View {
-        let viewModel = CategoryView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
-        return CategoryView(viewModel: viewModel)
-    }
+//    func createCategoryView() -> some View {
+//        let viewModel = CategoryView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
+//        return CategoryView(viewModel: viewModel)
+//    }
     
     func createCategoryCellView(typeId: Int, category: String) -> some View {
         let viewModel = CategoryBoxCellView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
