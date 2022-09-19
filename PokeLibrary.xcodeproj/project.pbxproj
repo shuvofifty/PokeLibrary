@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		533EAE9E28D890DA004C5477 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533EAE9D28D890DA004C5477 /* SceneDelegate.swift */; };
+		533EAEA228D8915E004C5477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533EAEA128D8915E004C5477 /* AppDelegate.swift */; };
 		5349F6E128C92A9D00A63D9B /* AsynImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6E028C92A9D00A63D9B /* AsynImageView.swift */; };
 		5349F6E428C92F0700A63D9B /* FileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6E328C92F0700A63D9B /* FileWorker.swift */; };
 		5349F6E928CA46CF00A63D9B /* HomePokemonCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6E828CA46CF00A63D9B /* HomePokemonCardView.swift */; };
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		533EAE9D28D890DA004C5477 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		533EAEA128D8915E004C5477 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5349F6E028C92A9D00A63D9B /* AsynImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynImageView.swift; sourceTree = "<group>"; };
 		5349F6E328C92F0700A63D9B /* FileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWorker.swift; sourceTree = "<group>"; };
 		5349F6E828CA46CF00A63D9B /* HomePokemonCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePokemonCardView.swift; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 				53756F9628AFF32700CF3E40 /* PokeLibraryApp.swift */,
 				53756F9A28AFF32F00CF3E40 /* Assets.xcassets */,
 				53756F9C28AFF32F00CF3E40 /* Preview Content */,
+				533EAE9D28D890DA004C5477 /* SceneDelegate.swift */,
+				533EAEA128D8915E004C5477 /* AppDelegate.swift */,
 			);
 			path = PokeLibrary;
 			sourceTree = "<group>";
@@ -449,6 +455,7 @@
 				534C6D2528BE8371002EAE0D /* HomeView.swift in Sources */,
 				534C6D2C28C11CB5002EAE0D /* Networking.swift in Sources */,
 				534C6D2728BE83DB002EAE0D /* HomeViewModel.swift in Sources */,
+				533EAEA228D8915E004C5477 /* AppDelegate.swift in Sources */,
 				534C6D2F28C7BB73002EAE0D /* PokemonDataController.swift in Sources */,
 				534FF43028CBF45300A7EFE4 /* PokemonTypeResponseData.swift in Sources */,
 				53756F9728AFF32700CF3E40 /* PokeLibraryApp.swift in Sources */,
@@ -456,6 +463,7 @@
 				5349F6FC28CBAE2700A63D9B /* CategoryView.swift in Sources */,
 				534C6D3128C7BBA2002EAE0D /* PokemonHomeData.swift in Sources */,
 				534FF42B28CBBB2200A7EFE4 /* Resolver+Dependency.swift in Sources */,
+				533EAE9E28D890DA004C5477 /* SceneDelegate.swift in Sources */,
 				5349F6FE28CBAF6800A63D9B /* Cordinator.swift in Sources */,
 				5349F6F828CBAD5C00A63D9B /* NavModifier.swift in Sources */,
 				5349F6F628CBA02000A63D9B /* TabController.swift in Sources */,

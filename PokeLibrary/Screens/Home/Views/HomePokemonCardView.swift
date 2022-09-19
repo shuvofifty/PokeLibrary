@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct HomePokemonCardView: View {
-    @EnvironmentObject var cordinator: Cordinator
     var url: String
     var pokemonName: String
     var id: Int
@@ -18,8 +17,6 @@ struct HomePokemonCardView: View {
     
     var body: some View {
         ZStack {
-            cordinator.createNav(for: { cordinator.createPokemonDetailView(pokemonId: id) }, isActive: $isPokemonDetailViewActive)
-            
             CircleWithLabelView(config: CircleWithLabelView.Config(), imageView: {
                 AsyncImageView(url: url)
             }, labelView: {
