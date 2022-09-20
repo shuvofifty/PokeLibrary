@@ -13,10 +13,13 @@ import Factory
 class CategoryViewController: UIViewController {
     private let contentView: UIHostingController<CategoryView>
     private let viewModel: CategoryView.ViewModel
+    private let cordinator: Cordinator
     
-    init() {
-        self.viewModel = CategoryView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
-        self.contentView = UIHostingController(rootView: CategoryView(cordinator: Cordinator(), viewModel: self.viewModel))
+    init(viewModel: CategoryView.ViewModel, cordinator: Cordinator) {
+        self.viewModel = viewModel
+        self.cordinator = cordinator
+        self.contentView = UIHostingController(rootView: CategoryView(cordinator: self.cordinator, viewModel: self.viewModel))
+        
         super.init(nibName: nil, bundle: nil)
     }
     

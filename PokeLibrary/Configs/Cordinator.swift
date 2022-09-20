@@ -9,16 +9,16 @@ import Foundation
 import SwiftUI
 import Factory
 
-class Cordinator: ObservableObject {
-    func createHomeView() -> some View {
-        let viewModel = HomeView.ViewModel(pokemonDataController: Container.pokemonDataController())
-        return NavigationView{ HomeView(viewModel: viewModel) }
+class Cordinator {
+    func createHomeViewController() -> HomeViewController {
+        let viewModel = HomeView.ViewModel(pokemonDataController: Container.pokemonDataController(), cordinator: self)
+        return HomeViewController(viewModel: viewModel)
     }
     
-//    func createCategoryView() -> some View {
-//        let viewModel = CategoryView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
-//        return CategoryView(viewModel: viewModel)
-//    }
+    func createCategoryViewController() -> CategoryViewController {
+        let viewModel = CategoryView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
+        return CategoryViewController(viewModel: viewModel, cordinator: self)
+    }
     
     func createCategoryCellView(typeId: Int, category: String) -> some View {
         let viewModel = CategoryBoxCellView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
@@ -32,12 +32,5 @@ class Cordinator: ObservableObject {
                 pokemonDataController: Container.pokemonDataController()
             )
         )
-    }
-    
-    func createNav<T: View>(for view: () -> T, isActive: Binding<Bool>) -> some View {
-        NavigationLink("_", isActive: isActive) {
-            view()
-        }
-        .hidden()
     }
 }

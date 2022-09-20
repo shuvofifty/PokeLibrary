@@ -12,12 +12,14 @@ import UIKit
 extension HomeView {
     class ViewModel: ObservableObject {
         private let pokemonDataController: PokemonDataController
+        public private(set) var cordinator: Cordinator
         var subscriptions = Set<AnyCancellable>()
         
         @Published var pokemons: [Pokemon]
         
-        init(pokemonDataController: PokemonDataController) {
+        init(pokemonDataController: PokemonDataController, cordinator: Cordinator) {
             self.pokemonDataController = pokemonDataController
+            self.cordinator = cordinator
             self.pokemons = []
         }
         

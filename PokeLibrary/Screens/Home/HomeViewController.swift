@@ -14,8 +14,8 @@ class HomeViewController: UIViewController {
     private let viewModel: HomeView.ViewModel
     private let contentView: UIHostingController<HomeView>
     
-    init() {
-        self.viewModel = HomeView.ViewModel(pokemonDataController: Container.pokemonDataController())
+    init(viewModel: HomeView.ViewModel) {
+        self.viewModel = viewModel
         self.contentView = UIHostingController(rootView: HomeView(viewModel: self.viewModel))
         super.init(nibName: nil, bundle: nil)
     }
