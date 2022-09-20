@@ -13,13 +13,15 @@ extension HomeView {
     class ViewModel: ObservableObject {
         private let pokemonDataController: PokemonDataController
         public private(set) var cordinator: Cordinator
+        private let router: Router?
         var subscriptions = Set<AnyCancellable>()
         
         @Published var pokemons: [Pokemon]
         
-        init(pokemonDataController: PokemonDataController, cordinator: Cordinator) {
+        init(pokemonDataController: PokemonDataController, cordinator: Cordinator, router: Router?) {
             self.pokemonDataController = pokemonDataController
             self.cordinator = cordinator
+            self.router = router
             self.pokemons = []
         }
         
@@ -32,6 +34,10 @@ extension HomeView {
         
         func getPokemonImage(with id: Int) -> String {
             pokemonDataController.getPokemonSpriteURL(for: id)
+        }
+        
+        func navigateToPokemonDetail(with id: Int) {
+            router?.push(cordinator.createPokemonDetailViewController(pokemonId: id), animated: true)
         }
     }
 }

@@ -13,8 +13,6 @@ struct HomePokemonCardView: View {
     var pokemonName: String
     var id: Int
     
-    @State private var isPokemonDetailViewActive = false
-    
     var body: some View {
         ZStack {
             CircleWithLabelView(config: CircleWithLabelView.Config(), imageView: {
@@ -23,11 +21,7 @@ struct HomePokemonCardView: View {
                 Text(pokemonName)
                     .bold()
             })
-            .onTapGesture {
-                self.isPokemonDetailViewActive = true
-            }
         }
-        
     }
 }
 

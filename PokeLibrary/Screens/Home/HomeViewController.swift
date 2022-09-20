@@ -9,14 +9,23 @@ import Foundation
 import UIKit
 import SwiftUI
 import Factory
+import Combine
 
 class HomeViewController: UIViewController {
+    enum ViewActions {
+        case pokemonCellTap(pokemonId: Int)
+    }
+    
     private let viewModel: HomeView.ViewModel
     private let contentView: UIHostingController<HomeView>
     
+    private let actionPassThrough: PassthroughSubject<ViewActions, Never> = .init()
+    
+    private var subscriptions = Set<AnyCancellable>()
+    
     init(viewModel: HomeView.ViewModel) {
         self.viewModel = viewModel
-        self.contentView = UIHostingController(rootView: HomeView(viewModel: self.viewModel))
+        self.contentView = UIHostingController(rootView: HomeView(viewModel: self.viewModel, actionPassThrough: actionPassThrough))
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,5 +48,16 @@ class HomeViewController: UIViewController {
         ])
         
         viewModel.getPokemonList()
+        bindings()
+    }
+    
+    private func bindings() {
+        actionPassThrough.receive(on: DispatchQueue.main).sink { action in
+            switch action {
+            case .pokemonCellTap(let pokemonId):
+                self.viewModel.navigateToPokemonDetail(with: pokemonId)
+            }
+        }
+        .store(in: &subscriptions)
     }
 }

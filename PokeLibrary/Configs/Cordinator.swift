@@ -10,8 +10,10 @@ import SwiftUI
 import Factory
 
 class Cordinator {
+    var router: Router?
+    
     func createHomeViewController() -> HomeViewController {
-        let viewModel = HomeView.ViewModel(pokemonDataController: Container.pokemonDataController(), cordinator: self)
+        let viewModel = HomeView.ViewModel(pokemonDataController: Container.pokemonDataController(), cordinator: self, router: router)
         return HomeViewController(viewModel: viewModel)
     }
     
@@ -25,12 +27,11 @@ class Cordinator {
         return CategoryBoxCellView(viewModel: viewModel, typeId: typeId, category: category)
     }
     
-    func createPokemonDetailView(pokemonId: Int) -> some View {
-        PokemonDetailView(
-            viewModel: PokemonDetailView.ViewModel(
-                pokemonId: pokemonId,
-                pokemonDataController: Container.pokemonDataController()
-            )
+    func createPokemonDetailViewController(pokemonId: Int) -> PokemonDetailViewController {
+        let viewModel = PokemonDetailView.ViewModel(
+            pokemonId: pokemonId,
+            pokemonDataController: Container.pokemonDataController()
         )
+        return PokemonDetailViewController(viewModel: viewModel)
     }
 }

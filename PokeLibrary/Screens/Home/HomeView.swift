@@ -7,19 +7,26 @@
 
 import SwiftUI
 import QGrid
+import Combine
 
 struct HomeView: View {
     @StateObject var viewModel: ViewModel
+    var actionPassThrough: PassthroughSubject<HomeViewController.ViewActions, Never>
     
     var body: some View {
         ZStack {
             QGrid(viewModel.pokemons, columns: 2) { pokemon in
-                HomePokemonCardView(
-                    url: viewModel.getPokemonImage(with: pokemon.pokemonID),
-                    pokemonName: (pokemon.name).capitalized,
-                    id: pokemon.pokemonID
-                )
-                .frame(maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                ZStack {
+                    HomePokemonCardView(
+                        url: viewModel.getPokemonImage(with: pokemon.pokemonID),
+                        pokemonName: (pokemon.name).capitalized,
+                        id: pokemon.pokemonID
+                    )
+                    .frame(maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    .onTapGesture {
+                        actionPassThrough.send(.pokemonCellTap(pokemonId: pokemon.pokemonID))
+                    }
+                }
             }
             .navigationTitle("Home")
         }
