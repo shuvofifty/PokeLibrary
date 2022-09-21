@@ -8,9 +8,15 @@
 import Foundation
 
 public struct PokemonDetailResponse: Codable {
-    var height: Int
-    var moves: [Move]
+    var height: Int?
+    var moves: [Move]?
+    var pokemonId: Int?
+    var name: String?
+    var weight: Double?
     
+    enum CodingKeys: String, CodingKey {
+        case height, moves, pokemonId = "id", name, weight
+    }
     
     struct Move: Codable {
         var name: String

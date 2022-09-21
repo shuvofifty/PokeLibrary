@@ -28,7 +28,9 @@ class PokemonDetailViewController: UIViewController {
         
         addChild(contentView)
         view.addSubview(contentView.view)
+        contentView.view.translatesAutoresizingMaskIntoConstraints = false
         contentView.view.JRL_SetToParent(view, top: 0, right: 0, bottom: 0, left: 0)
+        view.backgroundColor = .white
         
         viewModel.getPokemonDetail()
     }

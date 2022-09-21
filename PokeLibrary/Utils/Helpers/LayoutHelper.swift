@@ -10,8 +10,6 @@ import UIKit
 
 extension UIView {
     func JRL_SetToParent(_ view: UIView, top: CGFloat? = nil, right: CGFloat? = nil, bottom: CGFloat? = nil, left: CGFloat? = nil) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        view.translatesAutoresizingMaskIntoConstraints = false
         if let top = top {
             topAnchor.constraint(equalTo: view.topAnchor, constant: top).isActive = true
         }
