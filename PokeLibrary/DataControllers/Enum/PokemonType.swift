@@ -57,4 +57,49 @@ enum PokemonType: String {
             return (Color(.sRGB, red: 55/255, green: 57/255, blue: 46/255, opacity: 1), .white)
         }
     }
+    
+    func getIconString() -> String {
+        switch self {
+        case .normal:
+            return "normal"
+        case .fighting:
+            return "fighting"
+        case .flying:
+            return "flying"
+        case .poison:
+            return "poison"
+        case .ground:
+            return "ground"
+        case .rock:
+            return "rock"
+        case .bug:
+            return "bug"
+        case .ghost:
+            return "ghost"
+        case .steel:
+            return "steel"
+        case .fire:
+            return "fire"
+        case .water:
+            return "water"
+        case .grass:
+            return "grass"
+        case .electric:
+            return "electric"
+        case .psychic:
+            return "psyic"
+        case .ice:
+            return "ice"
+        case .dragon:
+            return "dragon"
+        case .dark:
+            return "dark"
+        case .fairy:
+            return "fairy"
+        case .unknown:
+            return "NoImage"
+        case .shadow:
+            return "NoImage"
+        }
+    }
 }
