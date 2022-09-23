@@ -12,17 +12,15 @@ struct PokemonDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text((viewModel.pokemonDetailResponse?.name ?? "No Name Found").capitalized)
-                .multilineTextAlignment(.trailing)
-                .font(.system(size: 40, weight: .bold))
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-                .padding(EdgeInsets(top: 20, leading: 20, bottom: 10, trailing: 20))
-            HStack {
-                AsyncImageView(url: viewModel.getPokemonSpriteURL())
-                    .frame(width: 180, height: 180, alignment: .center)
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
-            }
-            
+            PokemonDetailTopCardView(
+                config:
+                    PokemonDetailTopCardView.Config(
+                        imageURL: viewModel.getPokemonSpriteURL(),
+                        pokemonName: (viewModel.pokemonDetailResponse?.name ?? "No Name Found").capitalized,
+                        height: viewModel.pokemonDetailResponse?.height ?? 0,
+                        weight: viewModel.pokemonDetailResponse?.height ?? 0
+                    )
+            )
             Spacer()
         }
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .topLeading)
