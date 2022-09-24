@@ -16,41 +16,41 @@ enum PokemonType: String, Codable {
     func getColorCombo() -> TypeColorCombo {
         switch self {
         case .normal:
-            return (Color(.sRGB, red: 208/255, green: 208/255, blue: 208/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 168/255, green: 167/255, blue: 122/255, opacity: 1), .white)
         case .fighting:
-            return (Color(.sRGB, red: 244/255, green: 34/255, blue: 114/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 194/255, green: 46/255, blue: 40/255, opacity: 1), .white)
         case .flying:
-            return (Color(.sRGB, red: 14/255, green: 140/255, blue: 177/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 169/255, green: 143/255, blue: 243/255, opacity: 1), .white)
         case .poison:
-            return (Color(.sRGB, red: 161/255, green: 77/255, blue: 160/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 163/255, green: 62/255, blue: 161/255, opacity: 1), .white)
         case .ground:
-            return (Color(.sRGB, red: 239/255, green: 99/255, blue: 81/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 226/255, green: 191/255, blue: 101/255, opacity: 1), .white)
         case .rock:
-            return (Color(.sRGB, red: 216/255, green: 157/255, blue: 106/255, opacity: 1), .black)
+            return (Color(.sRGB, red: 182/255, green: 161/255, blue: 54/255, opacity: 1), .black)
         case .bug:
-            return (Color(.sRGB, red: 155/255, green: 229/255, blue: 100/255, opacity: 1), .black)
+            return (Color(.sRGB, red: 166/255, green: 185/255, blue: 26/255, opacity: 1), .black)
         case .ghost:
-            return (Color(.sRGB, red: 118/255, green: 101/255, blue: 147/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 115/255, green: 87/255, blue: 151/255, opacity: 1), .white)
         case .steel:
-            return (Color(.sRGB, red: 22/255, green: 105/255, blue: 122/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 183/255, green: 183/255, blue: 206/255, opacity: 1), .white)
         case .fire:
-            return (Color(.sRGB, red: 255/255, green: 166/255, blue: 43/255, opacity: 1), .black)
+            return (Color(.sRGB, red: 238/255, green: 129/255, blue: 48/255, opacity: 1), .white)
         case .water:
-            return (Color(.sRGB, red: 72/255, green: 159/255, blue: 181/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 99/255, green: 144/255, blue: 240/255, opacity: 1), .white)
         case .grass:
-            return (Color(.sRGB, red: 56/255, green: 134/255, blue: 89/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 122/255, green: 199/255, blue: 76/255, opacity: 1), .white)
         case .electric:
-            return (Color(.sRGB, red: 239/255, green: 160/255, blue: 11/255, opacity: 1), .black)
+            return (Color(.sRGB, red: 247/255, green: 208/255, blue: 44/255, opacity: 1), .black)
         case .psychic:
-            return (Color(.sRGB, red: 229/255, green: 89/255, blue: 52/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 249/255, green: 85/255, blue: 135/255, opacity: 1), .white)
         case .ice:
-            return (Color(.sRGB, red: 0/255, green: 204/255, blue: 181/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 150/255, green: 217/255, blue: 214/255, opacity: 1), .white)
         case .dragon:
-            return (Color(.sRGB, red: 34/255, green: 116/255, blue: 165/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 111/255, green: 53/255, blue: 252/255, opacity: 1), .white)
         case .dark:
-            return (Color(.sRGB, red: 55/255, green: 57/255, blue: 46/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 112/255, green: 87/255, blue: 70/255, opacity: 1), .white)
         case .fairy:
-            return (Color(.sRGB, red: 168/255, green: 96/255, blue: 168/255, opacity: 1), .white)
+            return (Color(.sRGB, red: 214/255, green: 133/255, blue: 173/255, opacity: 1), .white)
         case .unknown:
             return (Color(.sRGB, red: 55/255, green: 57/255, blue: 46/255, opacity: 1), .white)
         case .shadow:
