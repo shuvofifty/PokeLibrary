@@ -16,7 +16,7 @@ extension HomeView {
         private let router: Router?
         var subscriptions = Set<AnyCancellable>()
         
-        @Published var pokemons: [Pokemon]
+        @Published var pokemons: [PokemonHomeViewData]
         
         init(pokemonDataController: PokemonDataController, cordinator: Cordinator, router: Router?) {
             self.pokemonDataController = pokemonDataController
@@ -27,7 +27,11 @@ extension HomeView {
         
         func getPokemonList() {
             pokemonDataController.getPokemonList()
-                .map { $0.pokemons ?? [] }
+                .map { $0.pokemons ?? []}
+                .flatMap { $0.publisher }
+                .compactMap { self.getPokemonDetail(for: $0) }
+                .flatMap { $0 }
+                .collect()
                 .sink(receiveCompletion: { print("hAHAHA ERROR:  \($0)") }, receiveValue: { self.pokemons = $0 })
                 .store(in: &subscriptions)
         }
@@ -39,6 +43,18 @@ extension HomeView {
         func navigateToPokemonDetail(with id: Int) {
             router?.push(cordinator.createPokemonDetailViewController(pokemonId: id), animated: true)
         }
+        
+        private func getPokemonDetail(for pokemon: Pokemon) -> AnyPublisher<PokemonHomeViewData, APIError> {
+            pokemonDataController.getPokemonDetail(for: pokemon.pokemonID)
+                .map { PokemonHomeViewData(pokemon: pokemon, type: $0.types.first?.pokemonType ?? .unknown ) }
+                .eraseToAnyPublisher()
+                
+        }
     }
 }
 
+struct PokemonHomeViewData: Identifiable {
+    var pokemon: Pokemon
+    var type: PokemonType
+    var id = UUID()
+}

@@ -19,9 +19,10 @@ public struct PokemonDetailResponse: Codable {
         case height, moves, pokemonId = "id", name, weight, types
     }
     
-    struct Move: Codable {
+    struct Move: Codable, Identifiable {
         var name: String
         var url: String
+        var id = UUID()
         
         enum L1Key: String, CodingKey {
             case move
@@ -39,9 +40,10 @@ public struct PokemonDetailResponse: Codable {
         }
     }
     
-    struct PokemonTypeBranchStruct: Codable {
+    struct PokemonTypeBranchStruct: Codable, Identifiable {
         var pokemonType: PokemonType
         var typeId: Int
+        var id: UUID = UUID()
         
         enum L1Key: String, CodingKey {
             case type

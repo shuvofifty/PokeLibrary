@@ -15,16 +15,17 @@ struct HomeView: View {
     
     var body: some View {
         ZStack {
-            QGrid(viewModel.pokemons, columns: 2) { pokemon in
+            QGrid(viewModel.pokemons, columns: 2) { data in
                 ZStack {
                     HomePokemonCardView(
-                        url: viewModel.getPokemonImage(with: pokemon.pokemonID),
-                        pokemonName: (pokemon.name).capitalized,
-                        id: pokemon.pokemonID
+                        url: viewModel.getPokemonImage(with: data.pokemon.pokemonID),
+                        pokemonName: (data.pokemon.name).capitalized,
+                        id: data.pokemon.pokemonID,
+                        pokemontypeColorCombo: data.type.getColorCombo()
                     )
                     .frame(maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .onTapGesture {
-                        actionPassThrough.send(.pokemonCellTap(pokemonId: pokemon.pokemonID))
+                        actionPassThrough.send(.pokemonCellTap(pokemonId: data.pokemon.pokemonID))
                     }
                 }
             }
