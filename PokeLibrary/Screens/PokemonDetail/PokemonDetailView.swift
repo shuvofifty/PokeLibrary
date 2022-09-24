@@ -17,8 +17,9 @@ struct PokemonDetailView: View {
                     PokemonDetailTopCardView.Config(
                         imageURL: viewModel.getPokemonSpriteURL(),
                         pokemonName: (viewModel.pokemonDetailResponse?.name ?? "No Name Found").capitalized,
-                        height: viewModel.pokemonDetailResponse?.height ?? 0,
-                        weight: viewModel.pokemonDetailResponse?.height ?? 0
+                        height: viewModel.pokemonDetailResponse?.height ?? 0.0,
+                        weight: viewModel.pokemonDetailResponse?.weight ?? 0.0,
+                        type: viewModel.pokemonDetailResponse?.types.first?.pokemonType ?? .unknown
                     )
             )
             Spacer()
