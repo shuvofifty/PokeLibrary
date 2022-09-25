@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PokemonDetailTopCardView: View {
     var config: Config
+    var lineWidth: CGFloat = 6
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -32,12 +33,14 @@ struct PokemonDetailTopCardView: View {
             }
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
         }
-        .background(config.type.getColorCombo().primary)
-        .cornerRadius(20)
+        .background(config.type.getColorCombo().primary.opacity(0.8))
+        .cornerRadius(15)
+        .padding(10)
         .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 2)
+            RoundedRectangle(cornerRadius: 15)
+                .stroke(config.type.getColorCombo().primary, lineWidth: lineWidth)
         )
+        .padding(EdgeInsets(top: lineWidth/2, leading: lineWidth/2, bottom: lineWidth/2, trailing: lineWidth/2))
         
     }
     

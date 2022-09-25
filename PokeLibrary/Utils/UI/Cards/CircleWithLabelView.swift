@@ -19,6 +19,7 @@ public struct CircleWithLabelView<ImageView: View, LabelView: View>: View {
                 .padding(config.imageInnerPadding)
                 .clipShape(Circle())
                 .overlay(Circle().stroke(config.colors.imageBorderColor, lineWidth: 5))
+                .background(Circle().fill(config.colors.imageBorderColor).opacity(0.6))
                 .padding(config.imagePadding)
             labelView
                 .padding(config.labelPadding)
@@ -28,9 +29,9 @@ public struct CircleWithLabelView<ImageView: View, LabelView: View>: View {
     }
     
     public struct Config {
-        var labelPadding: EdgeInsets = EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        var labelPadding: EdgeInsets = EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
         var imagePadding: EdgeInsets = EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-        var imageInnerPadding: EdgeInsets = EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        var imageInnerPadding: EdgeInsets = EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
         var colors: ViewColor = ViewColor()
         
         public struct ViewColor {
