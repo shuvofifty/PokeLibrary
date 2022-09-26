@@ -12,16 +12,14 @@ import UIKit
 extension HomeView {
     class ViewModel: ObservableObject {
         private let pokemonDataController: PokemonDataController
-        public private(set) var cordinator: Cordinator
-        private let router: Router?
+        public private(set) var cordinator: HomeCordinator
         var subscriptions = Set<AnyCancellable>()
         
         @Published var pokemons: [PokemonHomeViewData]
         
-        init(pokemonDataController: PokemonDataController, cordinator: Cordinator, router: Router?) {
+        init(pokemonDataController: PokemonDataController, cordinator: HomeCordinator) {
             self.pokemonDataController = pokemonDataController
             self.cordinator = cordinator
-            self.router = router
             self.pokemons = []
         }
         
@@ -41,7 +39,7 @@ extension HomeView {
         }
         
         func navigateToPokemonDetail(with id: Int) {
-            router?.push(cordinator.createPokemonDetailViewController(pokemonId: id), animated: true)
+            cordinator.router?.push(cordinator.createPokemonDetailViewController(pokemonId: id), animated: true)
         }
         
         private func getPokemonDetail(for pokemon: Pokemon) -> AnyPublisher<PokemonHomeViewData, APIError> {

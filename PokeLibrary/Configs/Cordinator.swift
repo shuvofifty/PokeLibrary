@@ -9,22 +9,56 @@ import Foundation
 import SwiftUI
 import Factory
 
-class Cordinator {
-    var router: Router?
+protocol RootCordinator {
+    var homeCordinator: HomeCordinator! { get }
+    var categoryCordinator: CategoryCordinator! { get }
+    var viewFactory: ViewFactory! { get }
+}
+
+class RootCordinatorImp: RootCordinator {
+    lazy var homeCordinator: HomeCordinator! = {
+        HomeCordinatorImp(rootCordinator: self)
+    }()
     
-    func createHomeViewController() -> HomeViewController {
-        let viewModel = HomeView.ViewModel(pokemonDataController: Container.pokemonDataController(), cordinator: self, router: router)
+    lazy var categoryCordinator: CategoryCordinator! = {
+        CategoryCordinatorImp(rootCordinator: self)
+    }()
+    
+    lazy var viewFactory: ViewFactory! = {
+        ViewFactory()
+    }()
+    
+    init() {}
+}
+
+protocol HomeCordinator: Cordinator {
+    var rootCordinator: RootCordinator { get }
+    
+    func createPokemonDetailViewController(pokemonId: Int) -> PokemonDetailViewController
+}
+
+class HomeCordinatorImp: HomeCordinator {
+    let rootCordinator: RootCordinator
+    var router: Router? = nil
+    
+    init(rootCordinator: RootCordinator) {
+        self.rootCordinator = rootCordinator
+    }
+    
+    func start() {
+        // Empty
+    }
+    
+    func getWithRoute() -> UINavigationController? {
+        let nav = UINavigationController(rootViewController: createHomeViewController())
+        router = RouterImp(navigationController: nav)
+        
+        return nav
+    }
+    
+    private func createHomeViewController() -> HomeViewController {
+        let viewModel = HomeView.ViewModel(pokemonDataController: Container.pokemonDataController(), cordinator: self)
         return HomeViewController(viewModel: viewModel)
-    }
-    
-    func createCategoryViewController() -> CategoryViewController {
-        let viewModel = CategoryView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
-        return CategoryViewController(viewModel: viewModel, cordinator: self)
-    }
-    
-    func createCategoryCellView(typeId: Int, category: String) -> some View {
-        let viewModel = CategoryBoxCellView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
-        return CategoryBoxCellView(viewModel: viewModel, typeId: typeId, category: category)
     }
     
     func createPokemonDetailViewController(pokemonId: Int) -> PokemonDetailViewController {
@@ -33,5 +67,48 @@ class Cordinator {
             pokemonDataController: Container.pokemonDataController()
         )
         return PokemonDetailViewController(viewModel: viewModel)
+    }
+}
+
+protocol CategoryCordinator: Cordinator {
+    var rootCordinator: RootCordinator { get }
+}
+
+class CategoryCordinatorImp: CategoryCordinator {
+    let rootCordinator: RootCordinator
+    var router: Router?
+    
+    init(rootCordinator: RootCordinator) {
+        self.rootCordinator = rootCordinator
+    }
+    
+    func start() {
+        // Empty
+    }
+    
+    func getWithRoute() -> UINavigationController? {
+        let nav = UINavigationController(rootViewController: createCategoryViewController())
+        router = RouterImp(navigationController: nav)
+        return nav
+    }
+    
+    private func createCategoryViewController() -> CategoryViewController {
+        let viewModel = CategoryView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
+        return CategoryViewController(viewModel: viewModel, cordinator: self)
+    }
+}
+
+protocol Cordinator {
+    var router: Router? { get }
+    
+    func start()
+    func getWithRoute() -> UINavigationController?
+}
+
+// All SwiftUI View will build here with some quick functions. All params need to be standalone function
+class ViewFactory {
+    func createCategoryCellView(typeId: Int, category: String) -> some View {
+        let viewModel = CategoryBoxCellView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
+        return CategoryBoxCellView(viewModel: viewModel, typeId: typeId, category: category)
     }
 }

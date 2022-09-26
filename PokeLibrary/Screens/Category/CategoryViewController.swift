@@ -13,9 +13,9 @@ import Factory
 class CategoryViewController: UIViewController {
     private let contentView: UIHostingController<CategoryView>
     private let viewModel: CategoryView.ViewModel
-    private let cordinator: Cordinator
+    private let cordinator: CategoryCordinator
     
-    init(viewModel: CategoryView.ViewModel, cordinator: Cordinator) {
+    init(viewModel: CategoryView.ViewModel, cordinator: CategoryCordinator) {
         self.viewModel = viewModel
         self.cordinator = cordinator
         self.contentView = UIHostingController(rootView: CategoryView(cordinator: self.cordinator, viewModel: self.viewModel))

@@ -9,26 +9,27 @@ import Foundation
 import UIKit
 
 class TabBarController: UITabBarController {
-    private let cordinator: Cordinator
+    private let cordinator: RootCordinator
     
-    init(cordinator: Cordinator) {
+    init(cordinator: RootCordinator) {
         self.cordinator = cordinator
         super.init(nibName: nil, bundle: nil)
+        
+        createTabs()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func createTabs() {
         
-        let homeViewController = cordinator.createHomeViewController()
-        homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        let homeViewNavController = cordinator.homeCordinator.getWithRoute()!
+        homeViewNavController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
         
-        let categoryViewController = cordinator.createCategoryViewController()
-        categoryViewController.tabBarItem = UITabBarItem(title: "Category", image: UIImage(systemName: "circle.grid.3x3"), tag: 1)
+        let categoryNavViewController = cordinator.categoryCordinator.getWithRoute()!
+        categoryNavViewController.tabBarItem = UITabBarItem(title: "Category", image: UIImage(systemName: "circle.grid.3x3"), tag: 1)
         
-        self.viewControllers = [homeViewController, categoryViewController]
+        self.viewControllers = [homeViewNavController, categoryNavViewController]
     }
 }
