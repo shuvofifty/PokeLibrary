@@ -107,8 +107,7 @@ protocol Cordinator {
 
 // All SwiftUI View will build here with some quick functions. All params need to be standalone function
 class ViewFactory {
-    func createCategoryCellView(typeId: Int, category: String) -> some View {
-        let viewModel = CategoryBoxCellView.ViewModel(pokemonDataController: Container.pokemonDataController(), pokemonTypeDataController: Container.pokemonTypeDataController())
-        return CategoryBoxCellView(viewModel: viewModel, typeId: typeId, category: category)
+    func createCategoryCellView(typeId: Int, category: PokemonType) -> some View {
+        return CategoryBoxCellView(typeId: typeId, type: category)
     }
 }

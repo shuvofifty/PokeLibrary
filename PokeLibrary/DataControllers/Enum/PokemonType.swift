@@ -102,4 +102,8 @@ enum PokemonType: String, Codable {
             return "NoImage"
         }
     }
+    
+    func getName() -> String {
+        self.rawValue.capitalized
+    }
 }

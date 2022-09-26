@@ -16,7 +16,7 @@ struct HomePokemonCardView: View {
     
     var body: some View {
         ZStack {
-            CircleWithLabelView(config: CircleWithLabelView.Config(colors: CircleWithLabelView.Config.ViewColor.init(imageBorderColor: pokemontypeColorCombo.primary, labelBackgroundColor: pokemontypeColorCombo.primary, labelTextColor: pokemontypeColorCombo.secondary)), imageView: {
+            CircleWithLabelView(config: CircleWithLabelView.Config(colors: CircleWithLabelView.Config.ViewColor.init(imageBorderColor: pokemontypeColorCombo.primary, labelBackgroundColor: pokemontypeColorCombo.primary, labelTextColor: .white)), imageView: {
                 AsyncImageView(url: url)
             }, labelView: {
                 Text(pokemonName)

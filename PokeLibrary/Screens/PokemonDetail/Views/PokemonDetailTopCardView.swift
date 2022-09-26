@@ -33,7 +33,7 @@ struct PokemonDetailTopCardView: View {
             }
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
         }
-        .background(config.type.getColorCombo().primary.opacity(0.8))
+        .background(config.type.getColorCombo().primary.opacity(0.7))
         .cornerRadius(15)
         .padding(10)
         .overlay(

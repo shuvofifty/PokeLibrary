@@ -17,7 +17,7 @@ public struct PokemonTypeResponseData: Codable {
 }
 
 public struct PokemonTypeData: Codable, Identifiable {
-    var name: String
+    var type: PokemonType
     var typeId: Int
     public var id = UUID()
     
@@ -28,7 +28,7 @@ public struct PokemonTypeData: Codable, Identifiable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: RootKeys.self)
         
-        name = try container.decodeIfPresent(String.self, forKey: .name) ?? ""
+        type =  PokemonType(rawValue: try container.decodeIfPresent(String.self, forKey: .name) ?? "") ?? .unknown
         let url = try container.decodeIfPresent(String.self, forKey: .url) ?? ""
         if let id = Int(url.replacingOccurrences(of: "https://pokeapi.co/api/v2/type/", with: "").replacingOccurrences(of: "/", with: "")) {
             typeId = id

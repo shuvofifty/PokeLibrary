@@ -10,15 +10,17 @@ import SwiftUI
 import Combine
 
 struct CategoryBoxCellView: View {
-    @StateObject var viewModel: ViewModel
     let typeId: Int
-    let category: String
+    let type: PokemonType
     
     var body: some View {
         ZStack {
             VStack {
-                AsyncImageView(url: self.viewModel.imageUrl)
-                Text(category)
+                Image(type.getIconString())
+                    .resizable()
+                    .scaledToFit()
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                Text(type.getName())
                     .bold()
                     .font(.system(size: 20))
                     .foregroundColor(.orange)
@@ -29,33 +31,5 @@ struct CategoryBoxCellView: View {
         }
         .padding(2.5)
         .frame(maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-        .onAppear {
-            self.viewModel.getTypeDetails(for: self.typeId)
-        }
-    }
-}
-
-extension CategoryBoxCellView {
-    class ViewModel: ObservableObject {
-        @Published var imageUrl: String = ""
-        private let pokemonDataController: PokemonDataController
-        private let pokemonTypeDataController: PokemonTypeDataController
-        
-        private var subscriptions = Set<AnyCancellable>()
-        
-        init(pokemonDataController: PokemonDataController, pokemonTypeDataController: PokemonTypeDataController) {
-            self.pokemonDataController = pokemonDataController
-            self.pokemonTypeDataController = pokemonTypeDataController
-        }
-        
-        func getTypeDetails(for id: Int) {
-            pokemonTypeDataController.getCategoryDetail(for: id)
-                .sink { error in
-                    print("Error: \(error)")
-                } receiveValue: { response in
-                    self.imageUrl = self.pokemonDataController.getPokemonSpriteURL(for: response.pokemons.first?.pokemonID ?? -1)
-                }
-                .store(in: &subscriptions)
-        }
     }
 }
