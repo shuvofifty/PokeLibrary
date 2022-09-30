@@ -63,7 +63,7 @@ struct HeadingModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 30, weight: .bold))
+            .font(PokeFont.shared.globalFont(30).bold())
             .foregroundColor(textColor)
     }
 }

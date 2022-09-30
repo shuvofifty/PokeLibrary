@@ -17,5 +17,13 @@ final class SceneDelegate: NSObject, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = TabBarController(cordinator: RootCordinatorImp())
         window?.makeKeyAndVisible()
+        
+        for family in UIFont.familyNames {
+            print(family)
+            
+            for names in UIFont.fontNames(forFamilyName: family){
+                print("== \(names)")
+            }
+        }
     }
 }

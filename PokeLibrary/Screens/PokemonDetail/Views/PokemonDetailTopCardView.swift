@@ -16,7 +16,7 @@ struct PokemonDetailTopCardView: View {
             Text(config.pokemonName)
                 .foregroundColor(config.type.getColorCombo().secondary)
                 .multilineTextAlignment(.trailing)
-                .font(.system(size: 35, weight: .bold))
+                .font(PokeFont.shared.globalFont(35).bold())
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 10, trailing: 20))
             HStack {
@@ -25,8 +25,10 @@ struct PokemonDetailTopCardView: View {
                 Spacer()
                 VStack(alignment: .trailing, spacing: 10) {
                     Text("Height: \(Int(config.height)) ft")
+                        .font(PokeFont.shared.globalFont(18))
                         .foregroundColor(config.type.getColorCombo().secondary)
                     Text("Weight: \(Int(config.weight)) lbs")
+                        .font(PokeFont.shared.globalFont(18))
                         .foregroundColor(config.type.getColorCombo().secondary)
                 }
                 
