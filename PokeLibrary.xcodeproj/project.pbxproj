@@ -55,6 +55,7 @@
 		53756FB228AFF32F00CF3E40 /* PokeLibraryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53756FB128AFF32F00CF3E40 /* PokeLibraryUITests.swift */; };
 		53756FB428AFF32F00CF3E40 /* PokeLibraryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53756FB328AFF32F00CF3E40 /* PokeLibraryUITestsLaunchTests.swift */; };
 		5395001528E7D7210065DE97 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395001428E7D7210065DE97 /* PrimaryButton.swift */; };
+		5395001728E8703E0065DE97 /* MoveCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395001628E8703E0065DE97 /* MoveCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		53756FB128AFF32F00CF3E40 /* PokeLibraryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeLibraryUITests.swift; sourceTree = "<group>"; };
 		53756FB328AFF32F00CF3E40 /* PokeLibraryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeLibraryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5395001428E7D7210065DE97 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		5395001628E8703E0065DE97 /* MoveCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				533EAEB028DE210D004C5477 /* PokemonDetailTopCardView.swift */,
+				5395001628E8703E0065DE97 /* MoveCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				534C6D2528BE8371002EAE0D /* HomeView.swift in Sources */,
 				534C6D2C28C11CB5002EAE0D /* Networking.swift in Sources */,
 				534C6D2728BE83DB002EAE0D /* HomeViewModel.swift in Sources */,
+				5395001728E8703E0065DE97 /* MoveCardView.swift in Sources */,
 				533EAEA228D8915E004C5477 /* AppDelegate.swift in Sources */,
 				534C6D2F28C7BB73002EAE0D /* PokemonDataController.swift in Sources */,
 				534FF43028CBF45300A7EFE4 /* PokemonTypeResponseData.swift in Sources */,
