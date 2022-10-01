@@ -11,46 +11,62 @@ import QGrid
 struct PokemonDetailView: View {
     @ObservedObject var viewModel: ViewModel
     
+    private var pokemonTopCardSection: some View {
+        PokemonDetailTopCardView(
+            config:
+                PokemonDetailTopCardView.Config(
+                    imageURL: viewModel.getPokemonSpriteURL(),
+                    pokemonName: (viewModel.pokemonDetailViewData?.name ?? "No Name Found").capitalized,
+                    height: viewModel.pokemonDetailViewData?.height ?? 0.0,
+                    weight: viewModel.pokemonDetailViewData?.weight ?? 0.0,
+                    type: viewModel.pokemonDetailViewData?.types.first?.pokemonType ?? .unknown
+                )
+        )
+    }
+    
+    private var pokemonTypeSection: some View {
+        Group {
+            Text("Types")
+                .modifier(HeadingModifier(textColor: viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().primary ?? .black))
+                .padding(.bottom, 5)
+            HStack {
+                ForEach(viewModel.pokemonDetailViewData?.types ?? []) { type in
+                    Image(type.pokemonType.getIconString())
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                }
+            }
+        }
+    }
+    
+    private var pokemonMoveSection: some View {
+        Group {
+            Text("Moves")
+                .modifier(HeadingModifier(textColor: viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().primary ?? .black))
+                .padding(.bottom, 5)
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 0)), count: 2)) {
+                ForEach(viewModel.pokemonDetailViewData?.moves ?? []) { move in
+                    Text(move.name)
+                        .font(.system(size: 14))
+                        .padding(10)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .background(viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().primary ?? .black)
+                        .foregroundColor(viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().secondary ?? .white)
+                }
+            }
+        }
+    }
+    
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment: .leading) {
-                PokemonDetailTopCardView(
-                    config:
-                        PokemonDetailTopCardView.Config(
-                            imageURL: viewModel.getPokemonSpriteURL(),
-                            pokemonName: (viewModel.pokemonDetailResponse?.name ?? "No Name Found").capitalized,
-                            height: viewModel.pokemonDetailResponse?.height ?? 0.0,
-                            weight: viewModel.pokemonDetailResponse?.weight ?? 0.0,
-                            type: viewModel.pokemonDetailResponse?.types.first?.pokemonType ?? .unknown
-                        )
-                )
-                .padding(.bottom, 30)
+                pokemonTopCardSection
+                    .padding(.bottom, 30)
+
+                pokemonTypeSection
+                    .padding(.bottom, 30)
                 
-                Text("Types")
-                    .modifier(HeadingModifier(textColor: viewModel.pokemonDetailResponse?.types.first?.pokemonType.getColorCombo().primary ?? .black))
-                    .padding(.bottom, 5)
-                HStack {
-                    ForEach(viewModel.pokemonDetailResponse?.types ?? []) { type in
-                        Image(type.pokemonType.getIconString())
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                    }
-                }
-                .padding(.bottom, 30)
-                
-                Text("Moves")
-                    .modifier(HeadingModifier(textColor: viewModel.pokemonDetailResponse?.types.first?.pokemonType.getColorCombo().primary ?? .black))
-                    .padding(.bottom, 5)
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 0)), count: 2)) {
-                    ForEach(viewModel.pokemonDetailResponse?.moves ?? []) { move in
-                        Text(move.name)
-                            .font(.system(size: 14))
-                            .padding(10)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(viewModel.pokemonDetailResponse?.types.first?.pokemonType.getColorCombo().primary ?? .black)
-                            .foregroundColor(viewModel.pokemonDetailResponse?.types.first?.pokemonType.getColorCombo().secondary ?? .white)
-                    }
-                }
+                pokemonMoveSection
             }
             .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .padding(.horizontal, 20)

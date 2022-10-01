@@ -29,7 +29,6 @@
 		5349F6EC28CA4A5600A63D9B /* QGrid in Frameworks */ = {isa = PBXBuildFile; productRef = 5349F6EB28CA4A5600A63D9B /* QGrid */; };
 		5349F6EF28CA572700A63D9B /* CardWithTopImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6EE28CA572700A63D9B /* CardWithTopImageView.swift */; };
 		5349F6F128CA636A00A63D9B /* CircleWithLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6F028CA636A00A63D9B /* CircleWithLabelView.swift */; };
-		5349F6F428CB9F9300A63D9B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6F328CB9F9300A63D9B /* RootView.swift */; };
 		5349F6F628CBA02000A63D9B /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6F528CBA02000A63D9B /* TabController.swift */; };
 		5349F6F828CBAD5C00A63D9B /* NavModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6F728CBAD5C00A63D9B /* NavModifier.swift */; };
 		5349F6FC28CBAE2700A63D9B /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5349F6FB28CBAE2700A63D9B /* CategoryView.swift */; };
@@ -97,7 +96,6 @@
 		5349F6E828CA46CF00A63D9B /* HomePokemonCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePokemonCardView.swift; sourceTree = "<group>"; };
 		5349F6EE28CA572700A63D9B /* CardWithTopImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWithTopImageView.swift; sourceTree = "<group>"; };
 		5349F6F028CA636A00A63D9B /* CircleWithLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleWithLabelView.swift; sourceTree = "<group>"; };
-		5349F6F328CB9F9300A63D9B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		5349F6F528CBA02000A63D9B /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		5349F6F728CBAD5C00A63D9B /* NavModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavModifier.swift; sourceTree = "<group>"; };
 		5349F6FB28CBAE2700A63D9B /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 		5349F6F228CB9F8600A63D9B /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				5349F6F328CB9F9300A63D9B /* RootView.swift */,
 				5349F6F528CBA02000A63D9B /* TabController.swift */,
 			);
 			path = Root;
@@ -575,7 +572,6 @@
 				534FF43C28D2B4D400A7EFE4 /* PokemonDetailView.swift in Sources */,
 				5349F70028CBB38B00A63D9B /* CategoryView+ViewModel.swift in Sources */,
 				534FF43728D0EAB000A7EFE4 /* CategoryBoxCellView.swift in Sources */,
-				5349F6F428CB9F9300A63D9B /* RootView.swift in Sources */,
 				5349F6E128C92A9D00A63D9B /* AsynImageView.swift in Sources */,
 				533EAEB128DE210D004C5477 /* PokemonDetailTopCardView.swift in Sources */,
 				5349F6EF28CA572700A63D9B /* CardWithTopImageView.swift in Sources */,
