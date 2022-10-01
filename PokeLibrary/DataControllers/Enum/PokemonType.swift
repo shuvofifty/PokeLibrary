@@ -107,3 +107,8 @@ enum PokemonType: String, Codable {
         self.rawValue.capitalized
     }
 }
+
+struct PokemonTypeStruct: Identifiable, Hashable {
+    var id = UUID()
+    var type: PokemonType
+}

@@ -79,6 +79,22 @@ struct PokemonDetailView: View {
                     .padding(.bottom, 30)
                 
                 pokemonMoveSection
+                    .padding(.bottom, 30)
+                
+                Text("Weakness")
+                    .modifier(HeadingModifier(textColor: viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().primary ?? .black))
+                
+                if let weaknesses = viewModel.pokemonDetailViewData?.weakness {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(weaknesses) { weaknessType in
+                                Image(weaknessType.type.getIconString())
+                                    .resizable()
+                                    .frame(width: 50, height: 50)
+                            }
+                        }
+                    }
+                }
             }
             .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .padding(.horizontal, 20)

@@ -10,6 +10,7 @@ import Foundation
 struct PokemonTypeDetailResponse {
     var name: String
     var pokemons: [Pokemon]
+    var doubleDamageFrom: [PokemonTypeStruct] = []
     
     init(rawJson: [String: Any]) {
         name = rawJson["name"] as? String ?? ""
@@ -23,6 +24,14 @@ struct PokemonTypeDetailResponse {
                 pokemonID: Pokemon.extractId(url: (pokeObject?["url"] as? String) ?? "") ?? 0
             )
             pokemons.append(pokemon)
+        }
+        
+        let rawDoubleDamageArr = (rawJson["damage_relations"] as? [String:Any])?["double_damage_from"] as? [[String:Any]]
+        
+        for rawType in rawDoubleDamageArr ?? [] {
+            if let type = PokemonType(rawValue: rawType["name"] as? String ?? "") {
+                doubleDamageFrom.append(PokemonTypeStruct(type: type))
+            }
         }
     }
 }

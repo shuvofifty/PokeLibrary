@@ -12,13 +12,15 @@ extension PokemonDetailView {
     class ViewModel: ObservableObject {
         private var subscriptions = Set<AnyCancellable>()
         private var pokemonDataController: PokemonDataController
+        private var pokemonTypeDataController: PokemonTypeDataController
         private var pokemonId: Int
         
         @Published var pokemonDetailViewData: PokemonDetailViewController.ViewData?
         
-        init(pokemonId: Int, pokemonDataController: PokemonDataController) {
+        init(pokemonId: Int, pokemonDataController: PokemonDataController, pokemonTypeDataController: PokemonTypeDataController) {
             self.pokemonId = pokemonId
             self.pokemonDataController = pokemonDataController
+            self.pokemonTypeDataController = pokemonTypeDataController
         }
         
         func getPokemonDetail() {
@@ -45,12 +47,35 @@ extension PokemonDetailView {
                     
                     return data
                 }
-                .sink(receiveCompletion: { print("Error: \($0)") }, receiveValue: { self.pokemonDetailViewData = $0 })
+                .sink(receiveCompletion: { print("Error: \($0)") }, receiveValue: {
+                    self.pokemonDetailViewData = $0
+                    self.setWeakness()
+                })
                 .store(in: &subscriptions)
         }
         
         func getPokemonSpriteURL() -> String {
             pokemonDataController.getPokemonSpriteURL(for: pokemonId)
+        }
+        
+        private func setWeakness() {
+            (pokemonDetailViewData!.types)
+                .publisher
+                .compactMap { pokemonTypeDataController.getCategoryDetail(for: $0.typeId).map{$0.doubleDamageFrom}.eraseToAnyPublisher() }
+                .flatMap { $0 }
+                .collect()
+                .eraseToAnyPublisher()
+                .replaceError(with: [])
+                .sink {pokemonTypesArr in
+                    var typeSet: Set<PokemonTypeStruct> = []
+                    for pokemonTypes in pokemonTypesArr {
+                        for pokemonType in pokemonTypes {
+                            typeSet.insert(pokemonType)
+                        }
+                    }
+                    self.pokemonDetailViewData?.weakness = Array(typeSet)
+                }
+                .store(in: &subscriptions)
         }
     }
 }
@@ -63,5 +88,6 @@ extension PokemonDetailViewController {
         var weight: Double
         var types: [PokemonDetailResponse.PokemonTypeBranchStruct]
         var shouldShowMoreMove: Bool
+        var weakness: [PokemonTypeStruct]?
     }
 }

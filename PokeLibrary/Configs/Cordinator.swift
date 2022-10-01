@@ -64,7 +64,8 @@ class HomeCordinatorImp: HomeCordinator {
     func createPokemonDetailViewController(pokemonId: Int) -> PokemonDetailViewController {
         let viewModel = PokemonDetailView.ViewModel(
             pokemonId: pokemonId,
-            pokemonDataController: Container.pokemonDataController()
+            pokemonDataController: Container.pokemonDataController(),
+            pokemonTypeDataController: Container.pokemonTypeDataController()
         )
         return PokemonDetailViewController(viewModel: viewModel)
     }
