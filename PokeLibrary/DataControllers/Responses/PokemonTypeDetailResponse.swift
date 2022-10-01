@@ -10,7 +10,7 @@ import Foundation
 struct PokemonTypeDetailResponse {
     var name: String
     var pokemons: [Pokemon]
-    var doubleDamageFrom: [PokemonTypeStruct] = []
+    var doubleDamageFrom: [PokemonType] = []
     
     init(rawJson: [String: Any]) {
         name = rawJson["name"] as? String ?? ""
@@ -30,7 +30,7 @@ struct PokemonTypeDetailResponse {
         
         for rawType in rawDoubleDamageArr ?? [] {
             if let type = PokemonType(rawValue: rawType["name"] as? String ?? "") {
-                doubleDamageFrom.append(PokemonTypeStruct(type: type))
+                doubleDamageFrom.append(type)
             }
         }
     }

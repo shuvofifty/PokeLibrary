@@ -108,7 +108,7 @@ enum PokemonType: String, Codable {
     }
 }
 
-struct PokemonTypeStruct: Identifiable, Hashable {
+struct PokemonTypeStruct: Identifiable {
     var id = UUID()
     var type: PokemonType
 }

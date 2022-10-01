@@ -67,13 +67,13 @@ extension PokemonDetailView {
                 .eraseToAnyPublisher()
                 .replaceError(with: [])
                 .sink {pokemonTypesArr in
-                    var typeSet: Set<PokemonTypeStruct> = []
+                    var uniqueType: [PokemonType] = []
                     for pokemonTypes in pokemonTypesArr {
                         for pokemonType in pokemonTypes {
-                            typeSet.insert(pokemonType)
+                            if !uniqueType.contains(pokemonType) { uniqueType.append(pokemonType) }
                         }
                     }
-                    self.pokemonDetailViewData?.weakness = Array(typeSet)
+                    self.pokemonDetailViewData?.weakness = uniqueType.map { PokemonTypeStruct(type: $0) }
                 }
                 .store(in: &subscriptions)
         }
