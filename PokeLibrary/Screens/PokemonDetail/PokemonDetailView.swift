@@ -25,10 +25,11 @@ struct PokemonDetailView: View {
     }
     
     private var pokemonTypeSection: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Types")
                 .modifier(HeadingModifier(textColor: viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().primary ?? .black))
                 .padding(.bottom, 5)
+            
             HStack {
                 ForEach(viewModel.pokemonDetailViewData?.types ?? []) { type in
                     Image(type.pokemonType.getIconString())
@@ -40,10 +41,24 @@ struct PokemonDetailView: View {
     }
     
     private var pokemonMoveSection: some View {
-        Group {
-            Text("Moves")
-                .modifier(HeadingModifier(textColor: viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().primary ?? .black))
-                .padding(.bottom, 5)
+        VStack(alignment: .leading) {
+            HStack {
+                Text("Moves")
+                    .modifier(HeadingModifier(textColor: viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().primary ?? .black))
+                    .fixedSize(horizontal: false, vertical: true)
+                if viewModel.pokemonDetailViewData?.shouldShowMoreMove ?? false {
+                    Spacer()
+                    
+                    Button("More") {
+                        print("More")
+                    }
+                    .buttonStyle(SecondaryButtonStyle())
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .fixedSize(horizontal: true, vertical: true)
+                }
+            }
+            .padding(.bottom, 5)
+            
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 0)), count: 2)) {
                 ForEach(viewModel.pokemonDetailViewData?.moves ?? []) { move in
                     Text(move.name)
@@ -53,6 +68,14 @@ struct PokemonDetailView: View {
                         .background(viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().primary ?? .black)
                         .foregroundColor(viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().secondary ?? .white)
                 }
+            }
+            
+            if viewModel.pokemonDetailViewData?.shouldShowMoreMove ?? false {
+                Button("More") {
+                    print("More")
+                }
+                .buttonStyle(SecondaryButtonStyle())
+                .frame(minWidth: 0, maxWidth: .infinity)
             }
         }
     }

@@ -54,6 +54,7 @@
 		53756FA828AFF32F00CF3E40 /* PokeLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53756FA728AFF32F00CF3E40 /* PokeLibraryTests.swift */; };
 		53756FB228AFF32F00CF3E40 /* PokeLibraryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53756FB128AFF32F00CF3E40 /* PokeLibraryUITests.swift */; };
 		53756FB428AFF32F00CF3E40 /* PokeLibraryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53756FB328AFF32F00CF3E40 /* PokeLibraryUITestsLaunchTests.swift */; };
+		5395001528E7D7210065DE97 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395001428E7D7210065DE97 /* PrimaryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		53756FAD28AFF32F00CF3E40 /* PokeLibraryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeLibraryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53756FB128AFF32F00CF3E40 /* PokeLibraryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeLibraryUITests.swift; sourceTree = "<group>"; };
 		53756FB328AFF32F00CF3E40 /* PokeLibraryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeLibraryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5395001428E7D7210065DE97 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 		5326001128E159DC00CF2578 /* PokeUI */ = {
 			isa = PBXGroup;
 			children = (
+				5395001328E7D7060065DE97 /* Buttons */,
 				5326001228E159F000CF2578 /* Fonts */,
 			);
 			path = PokeUI;
@@ -399,6 +402,14 @@
 			path = PokeLibraryUITests;
 			sourceTree = "<group>";
 		};
+		5395001328E7D7060065DE97 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				5395001428E7D7210065DE97 /* PrimaryButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -575,6 +586,7 @@
 				5349F6E128C92A9D00A63D9B /* AsynImageView.swift in Sources */,
 				533EAEB128DE210D004C5477 /* PokemonDetailTopCardView.swift in Sources */,
 				5349F6EF28CA572700A63D9B /* CardWithTopImageView.swift in Sources */,
+				5395001528E7D7210065DE97 /* PrimaryButton.swift in Sources */,
 				5349F6E928CA46CF00A63D9B /* HomePokemonCardView.swift in Sources */,
 				534FF44228D2CA7000A7EFE4 /* PokemonDetailResponse.swift in Sources */,
 			);
