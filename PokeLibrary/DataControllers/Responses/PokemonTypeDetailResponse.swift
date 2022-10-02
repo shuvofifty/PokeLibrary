@@ -11,6 +11,7 @@ struct PokemonTypeDetailResponse {
     var name: String
     var pokemons: [Pokemon]
     var doubleDamageFrom: [PokemonType] = []
+    var strongAgainst: [PokemonType] = []
     
     init(rawJson: [String: Any]) {
         name = rawJson["name"] as? String ?? ""
@@ -31,6 +32,14 @@ struct PokemonTypeDetailResponse {
         for rawType in rawDoubleDamageArr ?? [] {
             if let type = PokemonType(rawValue: rawType["name"] as? String ?? "") {
                 doubleDamageFrom.append(type)
+            }
+        }
+        
+        let rawStrongAgainstArr = (rawJson["damage_relations"] as? [String:Any])?["double_damage_to"] as? [[String:Any]]
+        
+        for rawType in rawStrongAgainstArr ?? [] {
+            if let type = PokemonType(rawValue: rawType["name"] as? String ?? "") {
+                strongAgainst.append(type)
             }
         }
     }

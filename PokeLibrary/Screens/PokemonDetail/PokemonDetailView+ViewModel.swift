@@ -61,19 +61,24 @@ extension PokemonDetailView {
         private func setWeakness() {
             (pokemonDetailViewData!.types)
                 .publisher
-                .compactMap { pokemonTypeDataController.getCategoryDetail(for: $0.typeId).map{$0.doubleDamageFrom}.eraseToAnyPublisher() }
+                .compactMap { pokemonTypeDataController.getCategoryDetail(for: $0.typeId) }
                 .flatMap { $0 }
                 .collect()
                 .eraseToAnyPublisher()
                 .replaceError(with: [])
-                .sink {pokemonTypesArr in
-                    var uniqueType: [PokemonType] = []
-                    for pokemonTypes in pokemonTypesArr {
-                        for pokemonType in pokemonTypes {
-                            if !uniqueType.contains(pokemonType) { uniqueType.append(pokemonType) }
+                .sink {responseArr in
+                    var uniqueWeakness: [PokemonType] = []
+                    var uniqueStrength: [PokemonType] = []
+                    for response in responseArr {
+                        for pokemonType in response.doubleDamageFrom {
+                            if !uniqueWeakness.contains(pokemonType) { uniqueWeakness.append(pokemonType) }
+                        }
+                        for pokemonType in response.strongAgainst {
+                            if !uniqueStrength.contains(pokemonType) { uniqueStrength.append(pokemonType) }
                         }
                     }
-                    self.pokemonDetailViewData?.weakness = uniqueType.map { PokemonTypeStruct(type: $0) }
+                    self.pokemonDetailViewData?.weakness = uniqueWeakness.map { PokemonTypeStruct(type: $0) }
+                    self.pokemonDetailViewData?.strength = uniqueStrength.map { PokemonTypeStruct(type: $0) }
                 }
                 .store(in: &subscriptions)
         }
@@ -89,5 +94,6 @@ extension PokemonDetailViewController {
         var types: [PokemonDetailResponse.PokemonTypeBranchStruct]
         var shouldShowMoreMove: Bool
         var weakness: [PokemonTypeStruct]?
+        var strength: [PokemonTypeStruct]?
     }
 }
