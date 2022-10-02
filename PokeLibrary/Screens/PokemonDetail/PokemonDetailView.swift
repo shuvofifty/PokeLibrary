@@ -11,6 +11,32 @@ import QGrid
 struct PokemonDetailView: View {
     @ObservedObject var viewModel: ViewModel
     
+    var body: some View {
+        ScrollView(.vertical) {
+            VStack(alignment: .leading) {
+                pokemonTopCardSection
+                    .padding(.bottom, 30)
+                
+                flavourTextSection
+                    .padding(.bottom, 30)
+
+                pokemonTypeSection
+                    .padding(.bottom, 30)
+                
+                pokemonMoveSection
+                    .padding(.bottom, 30)
+                
+                weaknessSection
+                    .padding(.bottom, 30)
+                
+                strengthSection
+                    .padding(.bottom, 30)
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding(.horizontal, 20)
+        }
+    }
+    
     private var pokemonTopCardSection: some View {
         PokemonDetailTopCardView(
             config:
@@ -26,7 +52,7 @@ struct PokemonDetailView: View {
     
     private var pokemonTypeSection: some View {
         VStack(alignment: .leading) {
-            Text("Types")
+            Text(viewModel.pokemonDetailViewData?.types.count ?? 0 <= 1 ? "Type": "Types")
                 .modifier(HeadingModifier(textColor: viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().primary ?? .black))
                 .padding(.bottom, 5)
             
@@ -107,26 +133,12 @@ struct PokemonDetailView: View {
         }
     }
     
-    var body: some View {
-        ScrollView(.vertical) {
-            VStack(alignment: .leading) {
-                pokemonTopCardSection
-                    .padding(.bottom, 30)
-
-                pokemonTypeSection
-                    .padding(.bottom, 30)
-                
-                pokemonMoveSection
-                    .padding(.bottom, 30)
-                
-                weaknessSection
-                    .padding(.bottom, 30)
-                
-                strengthSection
-                    .padding(.bottom, 30)
-            }
-            .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            .padding(.horizontal, 20)
+    private var flavourTextSection: some View {
+        VStack(alignment: .leading) {
+            Text("Description")
+                .modifier(HeadingModifier(textColor: viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().primary ?? .black))
+            
+            Text("Hahaha this is an amazing description i have no idea whats going on. Maybe there will be an something i dk")
         }
     }
 }

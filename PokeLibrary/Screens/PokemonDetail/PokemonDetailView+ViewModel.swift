@@ -49,7 +49,8 @@ extension PokemonDetailView {
                 }
                 .sink(receiveCompletion: { print("Error: \($0)") }, receiveValue: {
                     self.pokemonDetailViewData = $0
-                    self.setWeakness()
+                    self.setWeaknessAndStrength()
+                    self.setFlavourText()
                 })
                 .store(in: &subscriptions)
         }
@@ -58,7 +59,7 @@ extension PokemonDetailView {
             pokemonDataController.getPokemonSpriteURL(for: pokemonId)
         }
         
-        private func setWeakness() {
+        private func setWeaknessAndStrength() {
             (pokemonDetailViewData!.types)
                 .publisher
                 .compactMap { pokemonTypeDataController.getCategoryDetail(for: $0.typeId) }
@@ -81,6 +82,10 @@ extension PokemonDetailView {
                     self.pokemonDetailViewData?.strength = uniqueStrength.map { PokemonTypeStruct(type: $0) }
                 }
                 .store(in: &subscriptions)
+        }
+        
+        private func setFlavourText() {
+            
         }
     }
 }
