@@ -16,9 +16,6 @@ struct PokemonDetailView: View {
             VStack(alignment: .leading) {
                 pokemonTopCardSection
                     .padding(.bottom, 30)
-                
-                flavourTextSection
-                    .padding(.bottom, 30)
 
                 pokemonTypeSection
                     .padding(.bottom, 30)
@@ -30,6 +27,9 @@ struct PokemonDetailView: View {
                     .padding(.bottom, 30)
                 
                 strengthSection
+                    .padding(.bottom, 30)
+                
+                flavourTextSection
                     .padding(.bottom, 30)
             }
             .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
@@ -148,7 +148,7 @@ struct HeadingModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(PokeFont.shared.globalFont(30).bold())
+            .font(.foundation(style: .title1).bold())
             .foregroundColor(textColor)
     }
 }

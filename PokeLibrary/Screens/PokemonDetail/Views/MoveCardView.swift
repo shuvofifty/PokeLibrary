@@ -19,7 +19,7 @@ extension PokemonDetailView {
                     .fill(type?.getColorCombo().primary ?? .black)
                 
                 Text(name)
-                    .font(PokeFont.shared.globalFont(18))
+                    .font(.foundation(style: .body))
                     .padding(10)
                     .foregroundColor(type?.getColorCombo().secondary ?? .white)
             }

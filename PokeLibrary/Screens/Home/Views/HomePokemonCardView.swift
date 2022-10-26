@@ -20,7 +20,7 @@ struct HomePokemonCardView: View {
                 AsyncImageView(url: url)
             }, labelView: {
                 Text(pokemonName)
-                    .font(PokeFont.shared.get(.Roboto, size: 18))
+                    .font(.foundation(style: .body))
                     .bold()
             })
         }

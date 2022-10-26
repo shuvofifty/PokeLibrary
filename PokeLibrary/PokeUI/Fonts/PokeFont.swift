@@ -8,25 +8,32 @@
 import Foundation
 import SwiftUI
 
-class PokeFont {
-    enum FontType {
-        case Roboto
-        
-        func getFontName() -> String {
-            switch self {
-            case .Roboto:
-                return "Roboto Condensed"
-            }
+extension Font {
+    static func foundation(style: FontStyle) -> Font {
+        Font.custom(FontType.Roboto.getFontName(), size: style.getSize())
+    }
+}
+
+enum FontStyle {
+    case body, body1, title, title1
+    
+    func getSize() -> CGFloat {
+        switch self {
+        case .title: return 35
+        case .title1: return 30
+        case .body: return 18
+        case .body1: return 16
         }
     }
+}
+
+enum FontType {
+    case Roboto
     
-    static let shared = PokeFont()
-    
-    func get(_ font: FontType, size: CGFloat) -> Font {
-        Font.custom(font.getFontName(), size: size)
-    }
-    
-    func globalFont(_ size: CGFloat) -> Font {
-        get(.Roboto, size: size)
+    func getFontName() -> String {
+        switch self {
+        case .Roboto:
+            return "Roboto Condensed"
+        }
     }
 }

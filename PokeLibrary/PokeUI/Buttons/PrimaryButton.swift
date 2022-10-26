@@ -45,7 +45,7 @@ struct PrimaryButtonStyle: ButtonStyle {
             .background(.black)
             .foregroundColor(.white)
             .clipShape(Capsule())
-            .font(PokeFont.shared.globalFont(16).bold())
+            .font(.foundation(style: .body1).bold())
             .scaleEffect(configuration.isPressed ? 1.1 : 1)
             .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
     }
@@ -62,7 +62,7 @@ struct SecondaryButtonStyle: ButtonStyle {
             .foregroundColor(.black)
             .overlay(Capsule().stroke(.black, lineWidth: borderWidth))
             .padding(borderWidth/2)
-            .font(PokeFont.shared.globalFont(16).bold())
+            .font(.foundation(style: .body1).bold())
             .scaleEffect(configuration.isPressed ? 1.2 : 1)
             .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
     }
@@ -74,6 +74,6 @@ struct TertiaryButtonStyle: ButtonStyle {
         configuration.label
             .padding()
             .foregroundColor(.black)
-            .font(PokeFont.shared.globalFont(18).bold())
+            .font(.foundation(style: .body).bold())
     }
 }
