@@ -16,6 +16,19 @@ class PokemonDetailViewController: RootViewController {
     private let contentView: UIHostingController<PokemonDetailView>
     private var subscriptions = Set<AnyCancellable>()
     
+    private lazy var navTitleView: UIHostingController<PokemonDetailNavTitle> = {
+        let hosting = UIHostingController(
+            rootView: PokemonDetailNavTitle(
+                pokemonName: viewModel.pokemonDetailViewData?.name ?? "",
+                pokemonImageURL: viewModel.getPokemonSpriteURL(),
+                textColor: viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().secondary ?? .clear
+            )
+        )
+        hosting.view.backgroundColor = .clear
+        hosting.view.translatesAutoresizingMaskIntoConstraints = false
+        return hosting
+    }()
+    
     init(viewModel: PokemonDetailView.ViewModel) {
         self.viewModel = viewModel
         self.scrollViewOffsetValueSubject = CurrentValueSubject<CGFloat, Never>(0)
@@ -41,11 +54,38 @@ class PokemonDetailViewController: RootViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        titleLabel.text = ""
+        titleLabel.text = "Hahahah"
         scrollViewOffsetValueSubject.sink { offset in
-            print("Scrolled: \(offset)")
+            self.setNavBarConfig(offSet: offset)
         }
         .store(in: &subscriptions)
+    }
+    
+    private func setNavBarConfig(offSet: CGFloat) {
+        if offSet > 100 {
+            navigationItem.titleView = navTitleView.view
+            navigationController?.navigationBar.barTintColor = UIColor(viewModel.pokemonDetailViewData?.types.first?.pokemonType.getColorCombo().primary ?? .clear)
+            
+        } else {
+            navigationItem.titleView = titleLabel
+            titleLabel.text = "Pokemon Detail"
+        }
+    }
+}
+
+struct PokemonDetailNavTitle: View {
+    var pokemonName: String
+    var pokemonImageURL: String
+    var textColor: Color
+    
+    var body: some View {
+        HStack {
+            AsyncImageView(url: pokemonImageURL)
+                .frame(width: 30, height: 30, alignment: .center)
+            Text(pokemonName)
+                .font(.foundation(style: .navigationTitle).bold())
+                .foregroundColor(textColor)
+        }
+        .frame(minHeight: 0, maxHeight: .infinity)
     }
 }

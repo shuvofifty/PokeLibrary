@@ -36,6 +36,7 @@ struct PokemonDetailView: View {
             }
             .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .padding(.horizontal, 20)
+            .padding(.top, 20)
             .background(GeometryReader { proxy -> Color in
                 DispatchQueue.main.async {
                     let offset = -proxy.frame(in: .named("scroll")).origin.y

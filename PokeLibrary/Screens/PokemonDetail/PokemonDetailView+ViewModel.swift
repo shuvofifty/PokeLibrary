@@ -29,7 +29,7 @@ extension PokemonDetailView {
                     var data = PokemonDetailViewController.ViewData(
                         height: resp.height ?? 0.0,
                         moves: [],
-                        name: resp.name ?? "",
+                        name: (resp.name ?? "").capitalized,
                         weight: resp.weight ?? 0.0,
                         types: resp.types,
                         shouldShowMoreMove: false

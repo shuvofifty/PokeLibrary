@@ -11,6 +11,8 @@ import UIKit
 class RootViewController: UIViewController {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         label.font = .foundation(style: .navigationTitle, weight: .regular)
         label.text = "Default"
         return label
