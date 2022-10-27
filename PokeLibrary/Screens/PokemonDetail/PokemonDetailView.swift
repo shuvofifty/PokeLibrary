@@ -7,9 +7,11 @@
 
 import SwiftUI
 import QGrid
+import Combine
 
 struct PokemonDetailView: View {
     @ObservedObject var viewModel: ViewModel
+    var scrollViewOffSetSubject: CurrentValueSubject<CGFloat, Never>
     
     var body: some View {
         ScrollView(.vertical) {
@@ -34,7 +36,15 @@ struct PokemonDetailView: View {
             }
             .frame(minWidth: 0, maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .padding(.horizontal, 20)
+            .background(GeometryReader { proxy -> Color in
+                DispatchQueue.main.async {
+                    let offset = -proxy.frame(in: .named("scroll")).origin.y
+                    self.scrollViewOffSetSubject.send(offset)
+                }
+                return Color.clear
+            })
         }
+        .coordinateSpace(name: "scroll")
     }
     
     private var pokemonTopCardSection: some View {

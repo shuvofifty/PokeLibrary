@@ -8,14 +8,18 @@
 import Foundation
 import UIKit
 import SwiftUI
+import Combine
 
-class PokemonDetailViewController: UIViewController {
+class PokemonDetailViewController: RootViewController {
     private let viewModel: PokemonDetailView.ViewModel
+    private let scrollViewOffsetValueSubject: CurrentValueSubject<CGFloat, Never>
     private let contentView: UIHostingController<PokemonDetailView>
+    private var subscriptions = Set<AnyCancellable>()
     
     init(viewModel: PokemonDetailView.ViewModel) {
         self.viewModel = viewModel
-        self.contentView = UIHostingController(rootView: PokemonDetailView(viewModel: self.viewModel))
+        self.scrollViewOffsetValueSubject = CurrentValueSubject<CGFloat, Never>(0)
+        self.contentView = UIHostingController(rootView: PokemonDetailView(viewModel: self.viewModel, scrollViewOffSetSubject: scrollViewOffsetValueSubject))
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,5 +37,15 @@ class PokemonDetailViewController: UIViewController {
         view.backgroundColor = .white
         
         viewModel.getPokemonDetail()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        titleLabel.text = ""
+        scrollViewOffsetValueSubject.sink { offset in
+            print("Scrolled: \(offset)")
+        }
+        .store(in: &subscriptions)
     }
 }

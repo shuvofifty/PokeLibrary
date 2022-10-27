@@ -56,6 +56,7 @@
 		53756FB428AFF32F00CF3E40 /* PokeLibraryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53756FB328AFF32F00CF3E40 /* PokeLibraryUITestsLaunchTests.swift */; };
 		5395001528E7D7210065DE97 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395001428E7D7210065DE97 /* PrimaryButton.swift */; };
 		5395001728E8703E0065DE97 /* MoveCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395001628E8703E0065DE97 /* MoveCardView.swift */; };
+		5395001B2909F6480065DE97 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5395001A2909F6470065DE97 /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		53756FB328AFF32F00CF3E40 /* PokeLibraryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeLibraryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5395001428E7D7210065DE97 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		5395001628E8703E0065DE97 /* MoveCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCardView.swift; sourceTree = "<group>"; };
+		5395001A2909F6470065DE97 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				5349F6F528CBA02000A63D9B /* TabController.swift */,
+				5395001A2909F6470065DE97 /* RootViewController.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				5395001728E8703E0065DE97 /* MoveCardView.swift in Sources */,
 				533EAEA228D8915E004C5477 /* AppDelegate.swift in Sources */,
 				534C6D2F28C7BB73002EAE0D /* PokemonDataController.swift in Sources */,
+				5395001B2909F6480065DE97 /* RootViewController.swift in Sources */,
 				534FF43028CBF45300A7EFE4 /* PokemonTypeResponseData.swift in Sources */,
 				5349F6F128CA636A00A63D9B /* CircleWithLabelView.swift in Sources */,
 				533EAEAE28D95767004C5477 /* Router.swift in Sources */,

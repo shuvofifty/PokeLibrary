@@ -11,7 +11,7 @@ import SwiftUI
 import Factory
 import Combine
 
-class HomeViewController: UIViewController {
+class HomeViewController: RootViewController {
     enum ViewActions {
         case pokemonCellTap(pokemonId: Int)
     }
@@ -36,7 +36,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        title = "Home"
+        titleLabel.text = "Home"
     }
     
     override func viewDidLoad() {
